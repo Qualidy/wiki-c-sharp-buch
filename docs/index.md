@@ -10,7 +10,7 @@ hide:
 <div markdown>
 Hier finden sie Ergänzungen und Übungsaufgaben zum Buch
 
-[Einstieg in C# mit Visual Studio 2022](https://www.rheinwerk-verlag.de/einstieg-in-c-sharp-mit-visual-studio/?srsltid=AfmBOorY3PU_z9rlIXpotThlPFg9QL1k7HPnit9kBbW1_ycXkUyo_lNr)
+[:fontawesome-solid-external-link: Einstieg in C# mit Visual Studio 2022](https://www.rheinwerk-verlag.de/einstieg-in-c-sharp-mit-visual-studio/?srsltid=AfmBOorY3PU_z9rlIXpotThlPFg9QL1k7HPnit9kBbW1_ycXkUyo_lNr){ target=_blank rel="noopener noreferrer" }
 
 <div class="grid cards fancy" markdown>
 - [:material-cursor-pointer: **1 Einführung**](content/1.md)
@@ -26,5 +26,8 @@ Hier finden sie Ergänzungen und Übungsaufgaben zum Buch
 
 </div>
 
-![](https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9783836288354_267.png)
+<a href="https://www.rheinwerk-verlag.de/einstieg-in-c-sharp-mit-visual-studio/?srsltid=AfmBOorY3PU_z9rlIXpotThlPFg9QL1k7HPnit9kBbW1_ycXkUyo_lNr" target="_blank" rel="noopener noreferrer">
+  <img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9783836288354_267.png" alt="Buchcover: Einstieg in C# mit Visual Studio 2022">
+</a>
+
 </div>
