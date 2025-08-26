@@ -1,0 +1,29 @@
+title: Transaktion – mehrere Inserts atomar
+question: |
+  Füge mehrere Personen in einer **Transaktion** ein, damit entweder alle oder keine gespeichert werden.
+
+solution: |
+  ```csharp
+  using var con = new SQLiteConnection("Data Source=app.db");
+  con.Open();
+  using var tx = con.BeginTransaction();
+  using var cmd = con.CreateCommand();
+  cmd.Transaction = tx;
+  cmd.CommandText = "INSERT INTO persons(name, year) VALUES(@n,@y);";
+  try
+  {
+      foreach (var p in new[]{("Alex",1992),("Sam",1988)})
+      {
+          cmd.Parameters.Clear();
+          cmd.Parameters.AddWithValue("@n", p.Item1);
+          cmd.Parameters.AddWithValue("@y", p.Item2);
+          cmd.ExecuteNonQuery();
+      }
+      tx.Commit();
+  }
+  catch
+  {
+      tx.Rollback();
+      throw;
+  }
+  ```

@@ -1,0 +1,30 @@
+title: WPF – Navigation zwischen Seiten
+question: |
+  Verwende ein `Frame`, um zwischen zwei `Page`‑Seiten zu navigieren.
+
+  **Hinweis**
+
+  - Lade die erste Seite im `Loaded`‑Ereignis.
+  - Navigiere per Button‑Klick zur zweiten Seite.
+
+solution: |
+  ```xml
+  <Window x:Class="Demo.MainWindow"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Nav" Height="300" Width="400" Loaded="Window_Loaded">
+    <DockPanel>
+      <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+        <Button Content="Seite 1" Click="Btn1_Click" Margin="4"/>
+        <Button Content="Seite 2" Click="Btn2_Click" Margin="4"/>
+      </StackPanel>
+      <Frame x:Name="MainFrame"/>
+    </DockPanel>
+  </Window>
+  ```
+
+  ```csharp
+  private void Window_Loaded(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Page1());
+  private void Btn1_Click(object s, RoutedEventArgs e) => MainFrame.Navigate(new Page1());
+  private void Btn2_Click(object s, RoutedEventArgs e) => MainFrame.Navigate(new Page2());
+  ```

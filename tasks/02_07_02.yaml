@@ -1,0 +1,15 @@
+title: for – Fakultät n!
+question: |
+  Lies `n` (klein halten, z. B. ≤ 10) und berechne `n!` mit `for`. Gib zusätzlich den Rechenweg aus.
+solution: |
+  ```csharp
+  int n = (int)NumN.Value;
+  long prod = 1;
+  string weg = "";
+  for (int i = 1; i <= n; i++)
+  {
+      prod *= i;
+      weg += (i == 1 ? "1" : $"×{i}");
+  }
+  LblAnzeige.Text = $"{weg} = {prod}";
+  ```

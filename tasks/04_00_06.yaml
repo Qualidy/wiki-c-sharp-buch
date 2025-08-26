@@ -1,0 +1,19 @@
+title: Nullable und Null‑Koaleszenz
+question: |
+  Verwende `int?` für eine optionale Eingabe. Zeige den Wert an oder ersatzweise `0`, wenn `null`.
+  Nutze dazu den Null‑Koaleszenz‑Operator `??`.
+
+  **Beispiel**
+
+  - `int? vielleicht = null;`
+  - `int sicher = vielleicht ?? 0;`
+
+solution: |
+  ```csharp
+  private void CmdNullables_Click(object sender, EventArgs e)
+  {
+      int? vielleicht = string.IsNullOrWhiteSpace(TxtEingabe.Text) ? null : int.Parse(TxtEingabe.Text);
+      int sicher = vielleicht ?? 0;
+      LblAnzeige.Text = $"Eingabe: {(vielleicht.HasValue ? vielleicht.Value.ToString() : "null")}\nErsatz: {sicher}";
+  }
+  ```

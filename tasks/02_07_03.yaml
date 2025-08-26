@@ -1,0 +1,14 @@
+title: while – Countdown
+question: |
+  Starte bei `n` und zähle bis 0 herunter. Gib jede Zahl in einer neuen Zeile aus.
+solution: |
+  ```csharp
+  int n = (int)NumN.Value;
+  string text = "";
+  while (n >= 0)
+  {
+      text += n + "\n";
+      n--;
+  }
+  LblAnzeige.Text = text;
+  ```

@@ -1,0 +1,14 @@
+title: Linien & Rechtecke zeichnen
+question: |
+  Zeichne im `Paint`‑Ereignis der Form einige Linien und ein gefülltes Rechteck.
+
+solution: |
+  ```csharp
+  private void Form1_Paint(object sender, PaintEventArgs e)
+  {
+      var g = e.Graphics;
+      g.DrawLine(Pens.Black, 10, 10, 200, 10);
+      g.DrawRectangle(Pens.Blue, 20, 30, 120, 80);
+      g.FillRectangle(Brushes.LightBlue, 22, 32, 116, 76);
+  }
+  ```

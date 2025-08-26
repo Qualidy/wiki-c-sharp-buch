@@ -1,0 +1,17 @@
+title: Gemeinsamer Handler für Schriftgröße
+question: |
+  Vier RadioButtons (8/10/12/16 pt) teilen sich **eine** Methode; diese liest `((RadioButton)sender).Text` aus und setzt `LblText.Font`.
+solution: |
+  ```csharp
+  private void RbtSize_CheckedChanged(object sender, EventArgs e)
+  {
+      var r = sender as RadioButton;
+      if (r != null && r.Checked)
+      {
+          if (float.TryParse(r.Text.Replace("pt","").Trim(), out float size))
+          {
+              LblText.Font = new Font(LblText.Font.FontFamily, size, LblText.Font.Style);
+          }
+      }
+  }
+  ```

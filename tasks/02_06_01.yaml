@@ -1,0 +1,12 @@
+title: CheckBox aktiviert/deaktiviert Label
+question: |
+  `ChkAktiv` schaltet ein Label `LblText` aktiv/inaktiv. Bei „inaktiv“ setze den Text auf „(inaktiv)“.
+solution: |
+  ```csharp
+  private void ChkAktiv_CheckedChanged(object sender, EventArgs e)
+  {
+      bool on = ChkAktiv.Checked;
+      LblText.Enabled = on;
+      LblText.Text = on ? "bereit" : "(inaktiv)";
+  }
+  ```

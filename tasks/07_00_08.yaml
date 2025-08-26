@@ -1,0 +1,17 @@
+title: Farb-/Schriftartdialog – anwenden auf Label
+question: |
+  Wähle per `ColorDialog` und `FontDialog` Farbe und Schriftart für `LblAnzeige` aus.
+
+solution: |
+  ```csharp
+  private void CmdColor_Click(object sender, EventArgs e)
+  {
+      using var dlg = new ColorDialog();
+      if (dlg.ShowDialog() == DialogResult.OK) LblAnzeige.ForeColor = dlg.Color;
+  }
+  private void CmdFont_Click(object sender, EventArgs e)
+  {
+      using var dlg = new FontDialog();
+      if (dlg.ShowDialog() == DialogResult.OK) LblAnzeige.Font = dlg.Font;
+  }
+  ```

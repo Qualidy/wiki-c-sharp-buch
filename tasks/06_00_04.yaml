@@ -1,0 +1,28 @@
+title: CSV – einfache Liste importieren/exportieren
+question: |
+  Speichere eine Liste von Personen (`Name;Jahr`) als CSV‑Datei und lade sie wieder.
+
+  - Beim Speichern: jede Person in eine Zeile schreiben
+  - Beim Laden: Zeilen splitten und Personenliste in einer `ListBox` anzeigen
+
+solution: |
+  ```csharp
+  using System.IO;
+
+  private List<Person> personen = new();
+
+  private void CmdExport_Click(object sender, EventArgs e)
+  {
+      File.WriteAllLines("personen.csv", personen.Select(p => $"{p.Name};{p.Geburtsjahr}"));
+  }
+
+  private void CmdImport_Click(object sender, EventArgs e)
+  {
+      personen = File.ReadAllLines("personen.csv")
+                     .Select(l => l.Split(';'))
+                     .Select(a => new Person(a[0], int.Parse(a[1])))
+                     .ToList();
+      Lst.Items.Clear();
+      Lst.Items.AddRange(personen.Select(p => p.ToString()).ToArray());
+  }
+  ```

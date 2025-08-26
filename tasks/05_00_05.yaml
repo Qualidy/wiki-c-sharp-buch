@@ -1,0 +1,17 @@
+title: Interface – `ISpeicherbar` mit `Speichern()`
+question: |
+  Definiere `interface ISpeicherbar { string Speichern(); }` und implementiere es in `Person`.
+  Die Methode liefert eine CSV‑Zeile zurück.
+
+solution: |
+  ```csharp
+  public interface ISpeicherbar { string Speichern(); }
+
+  public class Person : ISpeicherbar
+  {
+      public string Name { get; set; }
+      public int Geburtsjahr { get; set; }
+      public Person(string n, int j) { Name = n; Geburtsjahr = j; }
+      public string Speichern() => $"{Name};{Geburtsjahr}";
+  }
+  ```

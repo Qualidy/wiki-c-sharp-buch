@@ -1,0 +1,16 @@
+title: SELECT – Liste anzeigen
+question: |
+  Lade alle Personen und zeige sie in einer `ListBox` oder einem `DataGridView` an.
+
+solution: |
+  ```csharp
+  using var con = new SQLiteConnection("Data Source=app.db");
+  con.Open();
+  using var cmd = new SQLiteCommand("SELECT id, name, year FROM persons ORDER BY name;", con);
+  using var rdr = cmd.ExecuteReader();
+  Lst.Items.Clear();
+  while (rdr.Read())
+  {
+      Lst.Items.Add($"{rdr.GetInt32(0)}: {rdr.GetString(1)} ({rdr.GetInt32(2)})");
+  }
+  ```

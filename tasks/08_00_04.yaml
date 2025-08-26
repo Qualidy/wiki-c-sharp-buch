@@ -1,0 +1,16 @@
+title: UPDATE – Datensatz ändern
+question: |
+  Aktualisiere `name` und `year` eines ausgewählten Eintrags anhand der `id`.
+  Verwende wieder Parameter.
+
+solution: |
+  ```csharp
+  using var con = new SQLiteConnection("Data Source=app.db");
+  con.Open();
+  using var cmd = con.CreateCommand();
+  cmd.CommandText = "UPDATE persons SET name=@n, year=@y WHERE id=@id;";
+  cmd.Parameters.AddWithValue("@n", TxtName.Text);
+  cmd.Parameters.AddWithValue("@y", (int)NumJahr.Value);
+  cmd.Parameters.AddWithValue("@id", int.Parse(TxtId.Text));
+  cmd.ExecuteNonQuery();
+  ```

@@ -1,0 +1,14 @@
+title: Kreis/Ellipse & Text
+question: |
+  Zeichne eine Ellipse und schreibe einen Text mittig darunter.
+
+solution: |
+  ```csharp
+  private void Form1_Paint(object sender, PaintEventArgs e)
+  {
+      var g = e.Graphics;
+      var rect = new Rectangle(50, 50, 150, 100);
+      g.DrawEllipse(Pens.DarkGreen, rect);
+      g.DrawString("Ellipse", this.Font, Brushes.Black, rect.Left, rect.Bottom + 5);
+  }
+  ```

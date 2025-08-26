@@ -1,0 +1,30 @@
+title: Gültigkeitsbereich von Variablen (Feld vs. lokal)
+question: |
+  Zeige den Unterschied zwischen einem **Feld** (Klassenebene) und einer **lokalen** Variablen (Methodenebene):
+  
+  - Lege ein **Feld** `globalZaehler` in der Form-Klasse an.
+  - In einem Button-Klick: Erhöhe `globalZaehler` und außerdem eine **lokale** Variable `lokalerZaehler`.
+  - Gib beide Werte aus.
+  - Erläutere im Kommentar, warum `lokalerZaehler` außerhalb der Methode nicht sichtbar ist.
+solution: |
+  ```csharp
+  // In Form1.cs (innerhalb der Klasse Form1, aber außerhalb der Methoden):
+  private int globalZaehler = 0;
+
+  // In der Klick-Methode (z. B. eines Buttons):
+  private void BtnKlick(object sender, EventArgs e)
+  {
+      int lokalerZaehler = 0; // nur in dieser Methode sichtbar
+
+      globalZaehler++;
+      lokalerZaehler++;
+
+      LblAnzeige.Text = $"global: {globalZaehler}, lokal: {lokalerZaehler}";
+      // MessageBox.Show($"global: {globalZaehler}, lokal: {lokalerZaehler}");
+  }
+
+  // Hinweis:
+  // 'lokalerZaehler' existiert nur innerhalb von BtnKlick.
+  // Diese Zeile außerhalb der Methode wäre ein Fehler:
+  // LblAnzeige.Text = lokalerZaehler.ToString();
+  ```

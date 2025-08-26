@@ -1,0 +1,24 @@
+title: Methodenüberladung – Drei Varianten `Area`
+question: |
+  Überlade eine Methode `Area(...)` für
+
+  - Quadrat (`side`)
+  - Rechteck (`width`, `height`)
+  - Kreis (`radius`)
+
+  und zeige jeweils die berechnete Fläche.
+
+solution: |
+  ```csharp
+  private double Area(double side) => side * side;
+  private double Area(double width, double height) => width * height;
+  private double AreaCircle(double radius) => Math.PI * radius * radius;
+
+  private void CmdArea_Click(object sender, EventArgs e)
+  {
+      double a = Area(3);
+      double b = Area(4, 2);
+      double c = AreaCircle(2.5);
+      LblAnzeige.Text = $"Quadrat: {a:F2}\nRechteck: {b:F2}\nKreis: {c:F2}";
+  }
+  ```

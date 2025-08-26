@@ -1,0 +1,24 @@
+title: Methoden – Signatur, Rückgabe, benannte/optionale Parameter
+question: |
+  Implementiere eine Methode `PreisMitSteuer(decimal netto, decimal steuersatz = 0.19m)`,
+  die den Bruttopreis zurückgibt. Rufe sie mit **benannten Parametern** auf und zeige die Ausgabe formatiert.
+
+  **Beispiel**
+
+  - `PreisMitSteuer(netto: 59.90m)`
+  - `PreisMitSteuer(netto: 59.90m, steuersatz: 0.07m)`
+
+solution: |
+  ```csharp
+  private decimal PreisMitSteuer(decimal netto, decimal steuersatz = 0.19m)
+  {
+      return netto * (1 + steuersatz);
+  }
+
+  private void CmdTest_Click(object sender, EventArgs e)
+  {
+      decimal a = PreisMitSteuer(netto: 59.90m);
+      decimal b = PreisMitSteuer(netto: 59.90m, steuersatz: 0.07m);
+      LblAnzeige.Text = $"19%: {a:F2} €\n7%:  {b:F2} €";
+  }
+  ```

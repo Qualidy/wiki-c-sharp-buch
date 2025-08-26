@@ -1,0 +1,24 @@
+title: Jagged Array – Tabellenförmig anzeigen
+question: |
+  Erzeuge ein gezacktes Array `int[][]`, z. B. drei Zeilen mit unterschiedlicher Länge, fülle es mit Zahlen
+  und gib jede Zeile in einer neuen Label‑Zeile aus.
+
+  **Hinweis**
+
+  - Verwende `string.Join(" ", zeile)` zum Formatieren.
+
+solution: |
+  ```csharp
+  private void CmdJagged_Click(object sender, EventArgs e)
+  {
+      int[][] a =
+      {
+          new[] {1, 2, 3},
+          new[] {4, 5},
+          new[] {6, 7, 8, 9}
+      };
+
+      var lines = a.Select(row => string.Join(" ", row));
+      LblAnzeige.Text = string.Join("\n", lines);
+  }
+  ```

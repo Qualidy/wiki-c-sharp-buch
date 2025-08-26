@@ -1,0 +1,16 @@
+title: do…while – Verdoppeln bis Ziel
+question: |
+  Starte bei `prod = 1` und verdopple (`prod *= 2`), bis `prod >= n` erreicht ist. Gib `prod` und die Anzahl der Verdopplungen aus.
+solution: |
+  ```csharp
+  int n = (int)NumN.Value;
+  int prod = 1;
+  int steps = 0;
+  do
+  {
+      if (prod >= n) break;
+      prod *= 2;
+      steps++;
+  } while (true);
+  LblAnzeige.Text = $"prod={prod}, Schritte={steps}";
+  ```

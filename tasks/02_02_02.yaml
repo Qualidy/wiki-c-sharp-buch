@@ -1,0 +1,25 @@
+title: Vergleichsoperatoren testen
+question: |
+  Lege Variablen an und gib die Ergebnisse der Vergleiche aus:
+  
+  - `int a = 5`, `int b = 10`, `double x = 3.5`
+  - Prüfe: `a < b`, `a * 3 == b`, `x >= 3.5`, `"Maier" == "Mayer"`
+solution: |
+  ```csharp
+  int a = 5, b = 10;
+  double x = 3.5;
+
+  bool r1 = a < b;
+  bool r2 = a * 3 == b;
+  bool r3 = x >= 3.5;
+  bool r4 = "Maier" == "Mayer";
+
+  string text =
+      $"a < b            : {r1}\n" +
+      $"a * 3 == b       : {r2}\n" +
+      $"x >= 3.5         : {r3}\n" +
+      $"\"Maier\"==\"Mayer\": {r4}";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Vergleichsoperatoren");
+  ```

@@ -1,0 +1,16 @@
+title: DateTime & TimeSpan – Fälligkeit berechnen
+question: |
+  Lies ein Startdatum (`DateTimePicker DtpStart`) und eine Frist in Tagen (`NumTage`) ein.
+
+  - Berechne das Fälligkeitsdatum: `start + tage`
+  - Zeige an, wie viele Tage **ab heute** noch verbleiben (negativ, wenn überfällig).
+
+solution: |
+  ```csharp
+  DateTime start = DtpStart.Value.Date;
+  int tage = (int)NumTage.Value;
+  DateTime faellig = start.AddDays(tage);
+
+  int diff = (faellig - DateTime.Today).Days;
+  LblAnzeige.Text = $"Fällig am: {faellig:d}\nResttage: {diff}";
+  ```

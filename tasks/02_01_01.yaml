@@ -1,0 +1,27 @@
+title: Visitenkarte mit Variablen
+question: |
+  Lege Variablen für eine kleine Visitenkarte an und gib sie mehrzeilig aus.
+  
+  - `string name`
+  - `int alter`
+  - `double groesseMeter`
+  - `bool magCSharp`
+
+  Erzeuge eine mehrzeilige Zeichenkette mit String-Interpolation (z. B. via `\n`) und gib sie in der Oberfläche aus (z. B. Label oder MessageBox).
+solution: |
+  ```csharp
+  string name = "Alex";
+  int alter = 28;
+  double groesseMeter = 1.82;
+  bool magCSharp = true;
+
+  string text =
+      $"Name: {name}\n" +
+      $"Alter: {alter}\n" +
+      $"Größe (m): {groesseMeter}\n" +
+      $"Mag C#: {magCSharp}";
+
+  // WinForms-Beispiele:
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Visitenkarte");
+  ```

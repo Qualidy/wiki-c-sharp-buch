@@ -1,0 +1,19 @@
+title: Persistentes Zeichnen – Liste von Formen
+question: |
+  Verwalte gezeichnete Formen in einer Liste und zeichne sie im `Paint` neu, statt sofort mit `CreateGraphics`.
+
+solution: |
+  ```csharp
+  private readonly List<Rectangle> rects = new();
+
+  private void CmdAddRect_Click(object s, EventArgs e)
+  {
+      rects.Add(new Rectangle(10 + 20*rects.Count, 10, 40, 30));
+      Invalidate();
+  }
+
+  private void Form1_Paint(object sender, PaintEventArgs e)
+  {
+      foreach (var r in rects) e.Graphics.DrawRectangle(Pens.Black, r);
+  }
+  ```

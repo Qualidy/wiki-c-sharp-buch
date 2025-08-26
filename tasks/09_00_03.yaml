@@ -1,0 +1,19 @@
+title: Mauszeichnen – freihändig
+question: |
+  Implementiere Zeichnen per Maus: Beim Drücken beginnen, bei Bewegung Liniensegmente hinzufügen, beim Loslassen stoppen.
+
+solution: |
+  ```csharp
+  private bool drawing = false;
+  private Point last;
+
+  private void Form1_MouseDown(object sender, MouseEventArgs e) { drawing = true; last = e.Location; }
+  private void Form1_MouseUp(object sender, MouseEventArgs e) { drawing = false; }
+  private void Form1_MouseMove(object sender, MouseEventArgs e)
+  {
+      if (!drawing) return;
+      using var g = this.CreateGraphics();
+      g.DrawLine(Pens.Black, last, e.Location);
+      last = e.Location;
+  }
+  ```

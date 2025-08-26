@@ -1,0 +1,30 @@
+title: Panel bewegen (Buttons)
+question: |
+  Bewege ein Panel mit vier Buttons um jeweils 10 Pixel:
+  
+  - `CmdUp`, `CmdDown`, `CmdLeft`, `CmdRight`
+  - Ein Label `LblAnzeige` zeigt Position: `X: <Left>  Y: <Top>`
+solution: |
+  ```csharp
+  // Ereignisse der vier Buttons (WinForms)
+  private void CmdUp_Click(object sender, EventArgs e)
+  {
+      PnlBox.Top -= 10;
+      LblAnzeige.Text = $"X: {PnlBox.Left}  Y: {PnlBox.Top}";
+  }
+  private void CmdDown_Click(object sender, EventArgs e)
+  {
+      PnlBox.Top += 10;
+      LblAnzeige.Text = $"X: {PnlBox.Left}  Y: {PnlBox.Top}";
+  }
+  private void CmdLeft_Click(object sender, EventArgs e)
+  {
+      PnlBox.Left -= 10;
+      LblAnzeige.Text = $"X: {PnlBox.Left}  Y: {PnlBox.Top}";
+  }
+  private void CmdRight_Click(object sender, EventArgs e)
+  {
+      PnlBox.Left += 10;
+      LblAnzeige.Text = $"X: {PnlBox.Left}  Y: {PnlBox.Top}";
+  }
+  ```

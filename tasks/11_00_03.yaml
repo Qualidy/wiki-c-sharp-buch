@@ -1,0 +1,25 @@
+title: WPF – Commands mit Buttons
+question: |
+  Verbinde einen Button mit `ApplicationCommands.Copy` und reagiere im Code‑Behind.
+
+solution: |
+  ```xml
+  <Window x:Class="Demo.MainWindow"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Commands" Height="200" Width="300">
+    <Window.CommandBindings>
+      <CommandBinding Command="ApplicationCommands.Copy"
+                      Executed="Copy_Executed"
+                      CanExecute="Copy_CanExecute"/>
+    </Window.CommandBindings>
+    <StackPanel>
+      <Button Command="ApplicationCommands.Copy" Content="Kopieren" Margin="8"/>
+    </StackPanel>
+  </Window>
+  ```
+
+  ```csharp
+  private void Copy_CanExecute(object sender, CanExecuteRoutedEventArgs e) { e.CanExecute = true; }
+  private void Copy_Executed(object sender, ExecutedRoutedEventArgs e) { MessageBox.Show("Copy!"); }
+  ```

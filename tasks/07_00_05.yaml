@@ -1,0 +1,19 @@
+title: DataGridView – Liste binden & editieren
+question: |
+  Binde eine `BindingList<Person>` an ein `DataGridView`, damit Einträge direkt editiert werden können.
+
+solution: |
+  ```csharp
+  using System.ComponentModel;
+
+  private BindingList<Person> data = new BindingList<Person>
+  {
+      new Person("Alex", 1992),
+      new Person("Sam", 1988),
+  };
+
+  private void Form1_Load(object sender, EventArgs e)
+  {
+      dataGridView1.DataSource = data;
+  }
+  ```

@@ -1,0 +1,12 @@
+title: DoubleBuffering – Flackern vermeiden
+question: |
+  Aktiviere `DoubleBuffered = true` in der Form (oder Panel), um Flackern bei Animationen zu reduzieren.
+
+solution: |
+  ```csharp
+  public Form1()
+  {
+      InitializeComponent();
+      this.DoubleBuffered = true;
+  }
+  ```

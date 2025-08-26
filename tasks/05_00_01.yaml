@@ -1,0 +1,33 @@
+title: Klasse `Person` – Eigenschaften, Konstruktor, ToString
+question: |
+  Implementiere eine Klasse `Person` mit
+
+  - auto‑Properties `Name` (string) und `Geburtsjahr` (int)
+  - Konstruktor `(string name, int jahr)`
+  - `override string ToString()` → `"Name (Jahr)"`
+
+  Erzeuge in der UI zwei Personen und gib sie jeweils aus.
+
+solution: |
+  ```csharp
+  public class Person
+  {
+      public string Name { get; set; }
+      public int Geburtsjahr { get; set; }
+
+      public Person(string name, int jahr)
+      {
+          Name = name;
+          Geburtsjahr = jahr;
+      }
+
+      public override string ToString() => $"{Name} ({Geburtsjahr})";
+  }
+
+  private void CmdPerson_Click(object sender, EventArgs e)
+  {
+      var p1 = new Person("Alex", 1990);
+      var p2 = new Person("Sam", 1985);
+      LblAnzeige.Text = $"{p1}\n{p2}";
+  }
+  ```

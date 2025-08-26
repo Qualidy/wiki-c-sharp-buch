@@ -1,0 +1,10 @@
+title: Summe aller Einträge (foreach)
+question: |
+  Bilde die Summe aller `ListBox.Items` (ganzzahlig). Nutze `foreach`.
+solution: |
+  ```csharp
+  int sum = 0;
+  foreach (var item in LstZahlen.Items)
+      sum += Convert.ToInt32(item);
+  LblAnzeige.Text = $"Summe: {sum}";
+  ```

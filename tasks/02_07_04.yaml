@@ -1,0 +1,14 @@
+title: while – Ziffern zählen
+question: |
+  Zähle die Dezimalstellen einer positiven Ganzzahl `z` durch wiederholtes Teilen durch 10.
+solution: |
+  ```csharp
+  int z = Math.Abs((int)NumZ.Value);
+  int count = 0;
+  do
+  {
+      count++;
+      z /= 10;
+  } while (z > 0);
+  LblAnzeige.Text = $"Ziffern: {count}";
+  ```

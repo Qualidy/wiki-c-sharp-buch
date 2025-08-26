@@ -1,0 +1,11 @@
+title: Statusleiste – Fortschritt mit Timer
+question: |
+  Verwende eine `ToolStripProgressBar`, die über einen Timer von 0 bis 100 hochläuft.
+
+solution: |
+  ```csharp
+  private void Tmr_Tick(object sender, EventArgs e)
+  {
+      toolStripProgressBar1.Value = Math.Min(100, toolStripProgressBar1.Value + 1);
+  }
+  ```

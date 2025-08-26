@@ -1,0 +1,26 @@
+title: Passende Datentypen wählen und anzeigen
+question: |
+  Lege sinnvolle Variablen + Werte an und gib sie aus:
+  
+  - Kontostand (Geldbetrag)
+  - Artikelanzahl (ganzzahlig)
+  - Temperatur in °C (mit Nachkommastellen)
+  - Ampelzustand (ein Buchstabe z. B. R/G/Y)
+
+  Formatiere die Ausgabe ordentlich (mehrzeilig).
+solution: |
+  ```csharp
+  decimal kontostand = 1234.56m; // Geld: decimal
+  int artikelanzahl = 7;         // Stückzahl: int
+  double temperaturC = -2.5;     // Messwert mit Nachkommastellen: double
+  char ampel = 'R';              // ein Zeichen: char
+
+  string text =
+      $"Kontostand: {kontostand} €\n" +
+      $"Artikelanzahl: {artikelanzahl}\n" +
+      $"Temperatur: {temperaturC} °C\n" +
+      $"Ampel: {ampel}";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Datentypen");
+  ```

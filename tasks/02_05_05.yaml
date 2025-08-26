@@ -1,0 +1,22 @@
+title: switch – Tupel & when
+question: |
+  Lies zwei Ganzzahlen (z. B. `NumA`, `NumB`) und verwende einen Tupel-`switch` mit `when`:
+  
+  - beide < 10
+  - beide > 9
+  - Spezialfall: `a == b` (per `when`)
+solution: |
+  ```csharp
+  int a = (int)NumA.Value;
+  int b = (int)NumB.Value;
+
+  string text = (a, b) switch
+  {
+      var t when t.a == t.b => "gleich",
+      var t when t.a < 10 && t.b < 10 => "beide < 10",
+      var t when t.a > 9 && t.b > 9 => "beide > 9",
+      _ => "gemischt"
+  };
+
+  LblAnzeige.Text = text;
+  ```

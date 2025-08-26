@@ -1,0 +1,13 @@
+title: Klassenbibliothek – Modell auslagern
+question: |
+  Lege ein zweites Projekt vom Typ **Klassenbibliothek** an und verschiebe deine Klassen (`Person`, `Figur`, …)
+  dorthin. Referenziere die Bibliothek im WinForms‑Projekt und verwende die Typen wie zuvor.
+
+  **Akzeptanzkriterium**
+
+  - Das WinForms‑Projekt kompiliert, obwohl die Klassen im Bibliotheksprojekt liegen.
+
+solution: |
+  ```csharp
+  // kein spezifischer Code – Projektstruktur und Referenzen sind hier die Übung
+  ```

@@ -1,0 +1,25 @@
+title: Dateien – Text speichern & laden
+question: |
+  Implementiere **Speichern** und **Laden** für einen Text aus `TxtInhalt` in eine Datei `notiz.txt` im Programmverzeichnis.
+
+  - `File.WriteAllText`
+  - `File.ReadAllText`
+
+  Fehler (z. B. fehlende Rechte) sollen als Meldung erscheinen.
+
+solution: |
+  ```csharp
+  using System.IO;
+
+  private void CmdSave_Click(object sender, EventArgs e)
+  {
+      try { File.WriteAllText("notiz.txt", TxtInhalt.Text); }
+      catch (Exception ex) { MessageBox.Show(ex.Message, "Speicherfehler"); }
+  }
+
+  private void CmdLoad_Click(object sender, EventArgs e)
+  {
+      try { TxtInhalt.Text = File.ReadAllText("notiz.txt"); }
+      catch (Exception ex) { MessageBox.Show(ex.Message, "Ladefehler"); }
+  }
+  ```

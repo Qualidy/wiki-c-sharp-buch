@@ -1,0 +1,16 @@
+title: SELECT mit WHERE – Suche nach Name
+question: |
+  Suche Personen per Teilstring im Namen (z. B. `LIKE '%' || @q || '%'`) und zeige Ergebnisliste an.
+
+solution: |
+  ```csharp
+  using var con = new SQLiteConnection("Data Source=app.db");
+  con.Open();
+  using var cmd = con.CreateCommand();
+  cmd.CommandText = "SELECT id,name,year FROM persons WHERE name LIKE '%' || @q || '%' ORDER BY name;";
+  cmd.Parameters.AddWithValue("@q", TxtSuche.Text);
+  using var rdr = cmd.ExecuteReader();
+  Lst.Items.Clear();
+  while (rdr.Read())
+      Lst.Items.Add($"{rdr.GetInt32(0)}: {rdr.GetString(1)} ({rdr.GetInt32(2)})");
+  ```

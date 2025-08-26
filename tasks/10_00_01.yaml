@@ -1,0 +1,33 @@
+title: Mini‑Spiel – Klick mich!
+question: |
+  Erstelle ein kleines Spielchen: Ein Button springt zufällig in der Form herum, und der Benutzer soll ihn anklicken.
+
+  **Anforderungen**
+
+  - Alle 800 ms setzt ein `Timer` die Position des Buttons neu.
+  - Beim erfolgreichen Klick erhöht sich ein Punktezähler.
+  - Nach 30 Sekunden wird das Spiel automatisch gestoppt und das Ergebnis angezeigt.
+
+solution: |
+  ```csharp
+  private int score = 0;
+  private DateTime end;
+
+  private void CmdStart_Click(object s, EventArgs e)
+  {
+      score = 0;
+      end = DateTime.Now.AddSeconds(30);
+      Tmr.Interval = 800;
+      Tmr.Start();
+  }
+
+  private void Tmr_Tick(object s, EventArgs e)
+  {
+      if (DateTime.Now >= end) { Tmr.Stop(); MessageBox.Show($"Punkte: {score}"); return; }
+      var rnd = new Random();
+      Btn.Target.Left = rnd.Next(0, this.ClientSize.Width - Btn.Target.Width);
+      Btn.Target.Top  = rnd.Next(0, this.ClientSize.Height - Btn.Target.Height);
+  }
+
+  private void BtnTarget_Click(object s, EventArgs e) { score++; }
+  ```

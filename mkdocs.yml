@@ -1,12 +1,22 @@
 site_name: Ergänzungen zum C# Buch
 
+nav:
+  - Übersicht: index.md
+  - 1 Einführung: content/1.md
+  - 2 Grundlagen: content/2.md
+  - 3 Fehlerbehandlung: content/3.md
+  - 4 Erweiterte Grundlagen: content/4.md
+  - 5 Objektorientierte Programmierung: content/5.md
+  - 6 Wichtige Klassen in .NET: content/6.md
+  - 7 Weitere Elemente eines Windows-Programms: content/7.md
+  - 8 Datenbankanwendungen: content/8.md
+  - 9 Zeichnen mit GDI+: content/9.md
+
 theme:
   name: material
   palette:
     primary: amber
     accent: indigo
-  logo: assets/logo.png
-  favicon: assets/favicon.png
   features:
     - navigation.tracking
     - navigation.path
@@ -19,5 +29,23 @@ theme:
 
 markdown_extensions:
   - admonition
-  
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - stylesheets/grid.css
+
+plugins:
+    - search
+    - macros
+
+watch:
+  - tasks
+
 copyright: Copyright &copy; 2025 Qualidy GmbH

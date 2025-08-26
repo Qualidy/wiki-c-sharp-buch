@@ -1,0 +1,40 @@
+title: try/catch – Division mit Validierung
+question: |
+  Erstelle zwei Eingabefelder (z. B. `TxtA`, `TxtB`) und einen Button `CmdDiv`, der `A / B` berechnet.
+  Validierte Eingaben vermeiden Abstürze und melden Fehler nutzerfreundlich.
+
+  **Anforderungen**
+
+  - Versuche, `double.Parse` zu verwenden und fange Formatfehler in `catch (FormatException)`.
+  - Prüfe auf Division durch 0 und wirf in diesem Fall gezielt eine `DivideByZeroException`, die du ebenfalls fängst.
+  - Zeige das Ergebnis bzw. die Fehlermeldung in einer `MessageBox` an.
+
+solution: |
+  ```csharp
+  private void CmdDiv_Click(object sender, EventArgs e)
+  {
+      try
+      {
+          double a = double.Parse(TxtA.Text);
+          double b = double.Parse(TxtB.Text);
+
+          if (b == 0)
+              throw new DivideByZeroException("Division durch 0 ist nicht erlaubt.");
+
+          double res = a / b;
+          MessageBox.Show($"Ergebnis: {res}", "Division");
+      }
+      catch (FormatException)
+      {
+          MessageBox.Show("Bitte gültige Zahlen eingeben.", "Eingabefehler");
+      }
+      catch (DivideByZeroException ex)
+      {
+          MessageBox.Show(ex.Message, "Rechenfehler");
+      }
+      catch (Exception ex)
+      {
+          MessageBox.Show($"Unerwarteter Fehler: {ex.Message}", "Fehler");
+      }
+  }
+  ```

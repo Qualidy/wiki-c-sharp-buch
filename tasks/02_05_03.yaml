@@ -1,0 +1,17 @@
+title: switch-Ausdruck – Ampelfarbe
+question: |
+  Lies eine Zahl 1–3 (`NumAmpel`) und mappe per `switch`-Ausdruck auf „rot“, „gelb“, „grün“. Sonst „unbekannt“.
+solution: |
+  ```csharp
+  int code = (int)NumAmpel.Value;
+
+  string farbe = code switch
+  {
+      1 => "rot",
+      2 => "gelb",
+      3 => "grün",
+      _ => "unbekannt"
+  };
+
+  LblAnzeige.Text = farbe;
+  ```

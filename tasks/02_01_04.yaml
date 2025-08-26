@@ -1,0 +1,24 @@
+title: Konstante und Preisberechnung (Brutto aus Netto)
+question: |
+  Lege eine **Konstante** für den Steuersatz an und berechne aus einem Netto-Wert den Brutto-Preis.
+  
+  Vorgaben:
+  - `const decimal STEUERSATZ = 0.19m`
+  - Beispiel: `netto = 59.90m`
+  - Ausgabe: Netto, Steuerbetrag, Brutto — jeweils auf 2 Nachkommastellen.
+solution: |
+  ```csharp
+  const decimal STEUERSATZ = 0.19m;
+  decimal netto = 59.90m;
+
+  decimal steuer = netto * STEUERSATZ;
+  decimal brutto = netto + steuer;
+
+  string text =
+      $"Netto:  {netto:F2} €\n" +
+      $"Steuer: {steuer:F2} €\n" +
+      $"Brutto: {brutto:F2} €";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Preisberechnung");
+  ```

@@ -1,0 +1,17 @@
+title: Extension Method – `IsEmail()` für `string`
+question: |
+  Schreibe eine einfache Extension‐Methode `bool IsEmail(this string s)` (Basiskontrolle auf `@` und `.`)
+  und teste sie mit Werten aus einer TextBox.
+
+solution: |
+  ```csharp
+  public static class StringExtensions
+  {
+      public static bool IsEmail(this string s) => s.Contains("@") && s.Contains(".");
+  }
+
+  private void CmdCheck_Click(object sender, EventArgs e)
+  {
+      LblAnzeige.Text = TxtEingabe.Text.IsEmail() ? "OK" : "Nope";
+  }
+  ```

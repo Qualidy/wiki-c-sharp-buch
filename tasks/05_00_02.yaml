@@ -1,0 +1,31 @@
+title: Equals/GetHashCode – Personen vergleichen
+question: |
+  Erweitere `Person`, sodass zwei Personen als gleich gelten, wenn **Name und Geburtsjahr** übereinstimmen.
+  Überschreibe `Equals` und `GetHashCode` passend und demonstriere den Vergleich.
+
+solution: |
+  ```csharp
+  public class Person
+  {
+      public string Name { get; set; }
+      public int Geburtsjahr { get; set; }
+
+      public Person(string name, int jahr) { Name = name; Geburtsjahr = jahr; }
+
+      public override string ToString() => $"{Name} ({Geburtsjahr})";
+
+      public override bool Equals(object? obj)
+      {
+          return obj is Person p && p.Name == Name && p.Geburtsjahr == Geburtsjahr;
+      }
+
+      public override int GetHashCode() => HashCode.Combine(Name, Geburtsjahr);
+  }
+
+  private void CmdEq_Click(object sender, EventArgs e)
+  {
+      var a = new Person("Alex", 1990);
+      var b = new Person("Alex", 1990);
+      MessageBox.Show($"a.Equals(b): {a.Equals(b)}");
+  }
+  ```

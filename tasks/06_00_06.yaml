@@ -1,0 +1,13 @@
+title: Math – Funktionswerte in ListBox
+question: |
+  Berechne für `x = -3 … +3` in 0,5‑Schritten die Werte `f(x) = sin(x) + cos(x)` und zeige sie formatiert in einer `ListBox`.
+
+solution: |
+  ```csharp
+  Lst.Items.Clear();
+  for (double x = -3; x <= 3.001; x += 0.5)
+  {
+      double y = Math.Sin(x) + Math.Cos(x);
+      Lst.Items.Add($"x={x,4:F1}  f(x)={y,7:F3}");
+  }
+  ```

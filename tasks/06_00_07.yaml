@@ -1,0 +1,16 @@
+title: DateTimePicker – Zeitraumdiff in Stunden/Minuten
+question: |
+  Nutze zwei `DateTimePicker` (`DtpVon`, `DtpBis`) und berechne Differenzen:
+
+  - Gesamtdauer in Tagen
+  - in Stunden
+  - in Minuten
+
+solution: |
+  ```csharp
+  DateTime von = DtpVon.Value;
+  DateTime bis = DtpBis.Value;
+  var span = bis - von;
+
+  LblAnzeige.Text = $"Tage: {span.TotalDays:F2}\nStunden: {span.TotalHours:F2}\nMinuten: {span.TotalMinutes:F0}";
+  ```

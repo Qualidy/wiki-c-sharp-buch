@@ -1,0 +1,20 @@
+title: Generics – `List<Person>` filtern & sortieren
+question: |
+  Lege eine `List<Person>` an, filtere alle mit Geburtsjahr ≥ 1990 und sortiere aufsteigend nach Name.
+  Gib die Namen jeweils in einer neuen Zeile aus.
+
+solution: |
+  ```csharp
+  var list = new List<Person>
+  {
+      new Person("Zoe", 1980),
+      new Person("Alex", 1992),
+      new Person("Mara", 1995)
+  };
+
+  var q = list.Where(p => p.Geburtsjahr >= 1990)
+              .OrderBy(p => p.Name)
+              .Select(p => p.Name);
+
+  LblAnzeige.Text = string.Join("\n", q);
+  ```

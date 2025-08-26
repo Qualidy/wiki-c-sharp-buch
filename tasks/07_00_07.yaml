@@ -1,0 +1,14 @@
+title: Lokalisierung – UI‑Text wechseln
+question: |
+  Simuliere eine einfache „Lokalisierung“, indem du Texte von Steuerelementen zwischen Deutsch/Englisch umschaltest.
+
+solution: |
+  ```csharp
+  private bool de = true;
+  private void CmdLang_Click(object sender, EventArgs e)
+  {
+      de = !de;
+      this.Text = de ? "Meine App" : "My App";
+      CmdLang.Text = de ? "Sprache" : "Language";
+  }
+  ```

@@ -1,0 +1,13 @@
+title: TextBox-Livespiegel + Länge
+question: |
+  Spiegele den Inhalt einer TextBox live in ein Label und zeige zusätzlich die Länge des Textes an.
+  
+  - Steuerelemente: `TxtEingabe`, `LblAnzeige` (Ereignis: `TextChanged`).
+solution: |
+  ```csharp
+  private void TxtEingabe_TextChanged(object sender, EventArgs e)
+  {
+      string t = TxtEingabe.Text;
+      LblAnzeige.Text = t + "\n" + $"Länge: {t.Length}";
+  }
+  ```

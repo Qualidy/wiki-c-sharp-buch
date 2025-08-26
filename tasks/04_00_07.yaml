@@ -1,0 +1,19 @@
+title: Tupel – Mehrfachrückgabe
+question: |
+  Schreibe `static (int min, int max, double avg) Analyse(int[] a)`, die Minimum, Maximum und Durchschnitt
+  eines Arrays liefert. Demonstriere den Aufruf mit Dekonstruktion.
+
+solution: |
+  ```csharp
+  private static (int min, int max, double avg) Analyse(int[] a)
+  {
+      return (a.Min(), a.Max(), a.Average());
+  }
+
+  private void CmdAnalyse_Click(object sender, EventArgs e)
+  {
+      int[] a = { 5, 1, 9, 3 };
+      var (mi, ma, av) = Analyse(a);
+      LblAnzeige.Text = $"Min: {mi}\nMax: {ma}\nØ: {av:F2}";
+  }
+  ```

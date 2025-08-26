@@ -1,0 +1,18 @@
+title: RadioButtons richten Text aus
+question: |
+  Drei RadioButtons (links/zentriert/rechts) ändern `TextAlign` eines Labels `LblText`.
+solution: |
+  ```csharp
+  private void RbtLinks_CheckedChanged(object sender, EventArgs e)
+  {
+      if (RbtLinks.Checked) LblText.TextAlign = ContentAlignment.MiddleLeft;
+  }
+  private void RbtZentriert_CheckedChanged(object sender, EventArgs e)
+  {
+      if (RbtZentriert.Checked) LblText.TextAlign = ContentAlignment.MiddleCenter;
+  }
+  private void RbtRechts_CheckedChanged(object sender, EventArgs e)
+  {
+      if (RbtRechts.Checked) LblText.TextAlign = ContentAlignment.MiddleRight;
+  }
+  ```

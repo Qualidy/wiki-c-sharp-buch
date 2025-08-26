@@ -1,0 +1,19 @@
+title: if/else – Notentext (1–6)
+question: |
+  Lies eine Note `1`–`6` (z. B. `NumNote`) und gib per `if/else if/else` den Text aus:
+  
+  - 1 „sehr gut“, 2 „gut“, 3 „befriedigend“, 4 „ausreichend“, 5 „mangelhaft“, 6 „ungenügend“.
+solution: |
+  ```csharp
+  int note = (int)NumNote.Value;
+  string text;
+
+  if (note == 1) text = "sehr gut";
+  else if (note == 2) text = "gut";
+  else if (note == 3) text = "befriedigend";
+  else if (note == 4) text = "ausreichend";
+  else if (note == 5) text = "mangelhaft";
+  else text = "ungenügend";
+
+  LblAnzeige.Text = text;
+  ```

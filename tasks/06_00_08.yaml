@@ -1,0 +1,19 @@
+title: Verzeichnisse – Liste der Dateien anzeigen
+question: |
+  Zeige alle Dateien eines Ordners in einer `ListBox` an. Nutze `FolderBrowserDialog` zur Auswahl.
+
+solution: |
+  ```csharp
+  using System.IO;
+
+  private void CmdPickFolder_Click(object sender, EventArgs e)
+  {
+      using var dlg = new FolderBrowserDialog();
+      if (dlg.ShowDialog() == DialogResult.OK)
+      {
+          Lst.Items.Clear();
+          foreach (var f in Directory.GetFiles(dlg.SelectedPath))
+              Lst.Items.Add(f);
+      }
+  }
+  ```

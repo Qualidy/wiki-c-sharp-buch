@@ -1,0 +1,23 @@
+title: Operatorrangfolge sichtbar machen
+question: |
+  Berechne die folgenden Ausdrücke und vergleiche die Ergebnisse.
+  
+  1) Ohne Klammern: `5 + 3 * 4 - 6 / 2`
+  2) Mit Klammern (Variante A): `(5 + 3) * 4 - 6 / 2`
+  3) Mit Klammern (Variante B): `5 + (3 * 4 - 6) / 2`
+  
+  Erkläre in kurzen Kommentaren, welche Operatoren zuerst ausgewertet werden.
+solution: |
+  ```csharp
+  int expr1 = 5 + 3 * 4 - 6 / 2;           // * und / vor + und -
+  int exprA = (5 + 3) * 4 - 6 / 2;         // Klammern zuerst
+  int exprB = 5 + (3 * 4 - 6) / 2;         // Innenklammer zuerst, dann /, dann +
+
+  string text =
+      $"ohne Klammern: {expr1}\n" +
+      $"Variante A   : {exprA}\n" +
+      $"Variante B   : {exprB}";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Operatorrangfolge");
+  ```

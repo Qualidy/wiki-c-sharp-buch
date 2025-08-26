@@ -1,0 +1,19 @@
+title: switch mit Vergleichsmustern (NumericUpDown)
+question: |
+  Lies einen Double-Wert (NumericUpDown `NumX`). Nutze `switch` mit Vergleichsmustern:
+  
+  - `< 0`, `0`, `> 0 and <= 9`, `> 9`
+solution: |
+  ```csharp
+  double x = (double)NumX.Value;
+
+  string text = x switch
+  {
+      < 0 => "negativ",
+      0 => "null",
+      > 0 and <= 9 => "positiv, 0..9",
+      > 9 => "positiv, > 9"
+  };
+
+  LblAnzeige.Text = text;
+  ```

@@ -1,0 +1,12 @@
+title: Menü & Statusleiste – einfache Befehle
+question: |
+  Erstelle ein Menü mit Einträgen **Datei → Neu, Öffnen, Speichern, Beenden** und eine Statusleiste.
+  Zeige beim Klicken jeweils eine Statusmeldung an.
+
+solution: |
+  ```csharp
+  private void mnuNeu_Click(object sender, EventArgs e)    => toolStripStatusLabel1.Text = "Neu";
+  private void mnuOeffnen_Click(object sender, EventArgs e)=> toolStripStatusLabel1.Text = "Öffnen";
+  private void mnuSpeichern_Click(object sender, EventArgs e)=> toolStripStatusLabel1.Text = "Speichern";
+  private void mnuBeenden_Click(object sender, EventArgs e) => Close();
+  ```

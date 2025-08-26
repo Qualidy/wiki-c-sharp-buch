@@ -1,0 +1,25 @@
+title: Typkonvertierung (implizit/explicit)
+question: |
+  Demonstriere einfache Typkonvertierungen:
+  
+  - `int` → `double` (implizit)
+  - `double` → `int` (explizit per Cast)
+  
+  Gib beide Ergebnisse aus und notiere im Kommentar, was bei der Umwandlung `double → int` passiert.
+solution: |
+  ```csharp
+  int anzahl = 7;
+  double alsDouble = anzahl; // implizit möglich (kein Informationsverlust)
+
+  double preisProStueck = 2.75;
+  int ganzzahlig = (int)preisProStueck; // explizit: Nachkommastellen werden abgeschnitten
+
+  string text =
+      $"anzahl (int): {anzahl}\n" +
+      $"alsDouble (double): {alsDouble}\n" +
+      $"preisProStueck (double): {preisProStueck}\n" +
+      $"ganzzahlig (int, gecastet): {ganzzahlig}";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Typkonvertierung");
+  ```

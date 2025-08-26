@@ -1,0 +1,10 @@
+title: for – Summe 1..n
+question: |
+  Lies `n` (NumericUpDown `NumN`) und berechne die Summe 1+…+n mit `for`. Gib Ergebnis aus.
+solution: |
+  ```csharp
+  int n = (int)NumN.Value;
+  int sum = 0;
+  for (int i = 1; i <= n; i++) sum += i;
+  LblAnzeige.Text = $"Summe 1..{n} = {sum}";
+  ```

@@ -1,0 +1,16 @@
+title: DELETE – Datensatz entfernen
+question: |
+  Lösche einen Eintrag anhand der `id`. Frage vorher per `MessageBox` nach Bestätigung.
+
+solution: |
+  ```csharp
+  if (MessageBox.Show("Wirklich löschen?", "Bestätigen", MessageBoxButtons.YesNo) == DialogResult.Yes)
+  {
+      using var con = new SQLiteConnection("Data Source=app.db");
+      con.Open();
+      using var cmd = con.CreateCommand();
+      cmd.CommandText = "DELETE FROM persons WHERE id=@id;";
+      cmd.Parameters.AddWithValue("@id", int.Parse(TxtId.Text));
+      cmd.ExecuteNonQuery();
+  }
+  ```

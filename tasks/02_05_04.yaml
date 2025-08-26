@@ -1,0 +1,15 @@
+title: switch – or-Muster (Städte)
+question: |
+  Lies einen Stadtnamen (TextBox `TxtStadt`). Für „Namur“, „Antwerpen“ oder „Lüttich“ gib „Belgien (BE)“ aus; sonst „andere“.
+solution: |
+  ```csharp
+  string s = TxtStadt.Text.Trim();
+
+  string land = s switch
+  {
+      "Namur" or "Antwerpen" or "Lüttich" => "Belgien (BE)",
+      _ => "andere"
+  };
+
+  LblAnzeige.Text = land;
+  ```

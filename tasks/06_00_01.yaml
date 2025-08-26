@@ -1,0 +1,19 @@
+title: string‑APIs – Trimmen, Ersetzen, Splitten
+question: |
+  Lies einen Text aus `TxtRaw` ein und bereite ihn auf:
+
+  - `Trim()` führende/folgende Leerzeichen entfernen
+  - `Replace("  ", " ")` doppelte Spaces vereinfachen
+  - `Split(' ')` in Wörter zerlegen und Anzahl zählen
+
+  Zeige Ergebnistext und Wortanzahl an.
+
+solution: |
+  ```csharp
+  string raw = TxtRaw.Text;
+  string cleaned = raw.Trim();
+  while (cleaned.Contains("  ")) cleaned = cleaned.Replace("  ", " ");
+
+  var words = cleaned.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+  LblAnzeige.Text = cleaned + "\n" + $"Wörter: {words.Length}";
+  ```

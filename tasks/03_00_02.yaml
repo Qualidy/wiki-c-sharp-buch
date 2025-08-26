@@ -1,0 +1,30 @@
+title: TryParse statt Ausnahme – robuste Umwandlung
+question: |
+  Erweitere die Division aus Aufgabe 03_00_01 so, dass **keine Ausnahmen** beim Parsen auftreten.
+  Nutze `double.TryParse` und gib bei ungültiger Eingabe eine klare Meldung aus.
+
+  **Hinweis**
+
+  - `TryParse` liefert `true/false` und schreibt bei Erfolg den konvertierten Wert in eine `out`‑Variable.
+
+solution: |
+  ```csharp
+  private void CmdDiv_Click(object sender, EventArgs e)
+  {
+      if (!double.TryParse(TxtA.Text, out double a) ||
+          !double.TryParse(TxtB.Text, out double b))
+      {
+          MessageBox.Show("Bitte zwei gültige Zahlen eingeben.", "Eingabefehler");
+          return;
+      }
+
+      if (b == 0)
+      {
+          MessageBox.Show("Division durch 0 ist nicht erlaubt.", "Rechenfehler");
+          return;
+      }
+
+      double res = a / b;
+      MessageBox.Show($"Ergebnis: {res}", "Division");
+  }
+  ```

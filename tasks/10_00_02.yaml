@@ -1,0 +1,33 @@
+title: Vokabeltrainer – Zufallsabfrage
+question: |
+  Baue einen Mini‑Vokabeltrainer mit einem festen Wörterbuch im Code.
+
+  **Ablauf**
+
+  - Per Button wird ein zufälliges Wort gewählt und angezeigt.
+  - Der Nutzer tippt die Übersetzung in eine TextBox.
+  - Nach Klick auf „Prüfen“ gibt es Feedback und die nächste Runde beginnt.
+
+solution: |
+  ```csharp
+  private readonly (string de, string en)[] words =
+  {
+      ("Hund","dog"), ("Katze","cat"), ("Haus","house")
+  };
+  private int idx = -1;
+
+  private void CmdNext_Click(object s, EventArgs e)
+  {
+      idx = new Random().Next(words.Length);
+      LblFrage.Text = words[idx].de;
+      TxtAntwort.Text = "";
+  }
+
+  private void CmdCheck_Click(object s, EventArgs e)
+  {
+      if (idx < 0) return;
+      bool ok = string.Equals(TxtAntwort.Text.Trim(), words[idx].en, StringComparison.OrdinalIgnoreCase);
+      MessageBox.Show(ok ? "Richtig!" : $"Falsch – {words[idx].en}");
+      CmdNext_Click(s, e);
+  }
+  ```

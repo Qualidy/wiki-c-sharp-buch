@@ -1,0 +1,22 @@
+title: Funktionsplot y = sin(x)
+question: |
+  Zeichne die Kurve `y = sin(x)` im Bereich `x = 0 … 2π` in ein Koordinatensystem.
+
+solution: |
+  ```csharp
+  private void Form1_Paint(object sender, PaintEventArgs e)
+  {
+      var g = e.Graphics;
+      int w = this.ClientSize.Width;
+      int h = this.ClientSize.Height;
+      PointF[] pts = new PointF[w];
+      for (int x = 0; x < w; x++)
+      {
+          double t = (double)x / (w - 1) * 2 * Math.PI;
+          double y = Math.Sin(t);
+          float yy = (float)((1 - (y + 1) / 2) * (h - 1));
+          pts[x] = new PointF(x, yy);
+      }
+      g.DrawLines(Pens.Red, pts);
+  }
+  ```

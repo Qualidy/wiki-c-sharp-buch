@@ -1,0 +1,18 @@
+title: ListView – Detailsansicht mit Spalten
+question: |
+  Fülle eine `ListView` in **Details**‑Ansicht mit zwei Spalten (Name, Jahr) und einigen Einträgen.
+
+solution: |
+  ```csharp
+  private void CmdFill_Click(object sender, EventArgs e)
+  {
+      listView1.View = View.Details;
+      listView1.Columns.Clear();
+      listView1.Columns.Add("Name", 120);
+      listView1.Columns.Add("Jahr", 60);
+
+      listView1.Items.Clear();
+      listView1.Items.Add(new ListViewItem(new[] {"Alex", "1992"}));
+      listView1.Items.Add(new ListViewItem(new[] {"Sam", "1988"}));
+  }
+  ```

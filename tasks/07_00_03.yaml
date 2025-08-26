@@ -1,0 +1,20 @@
+title: Standarddialoge – Datei öffnen/speichern
+question: |
+  Implementiere `OpenFileDialog` und `SaveFileDialog` zum Laden/Speichern von Text in `RichTextBox`.
+
+solution: |
+  ```csharp
+  private void CmdOpen_Click(object sender, EventArgs e)
+  {
+      using var dlg = new OpenFileDialog { Filter = "Text|*.txt|Alle|*.*" };
+      if (dlg.ShowDialog() == DialogResult.OK)
+          richTextBox1.Text = File.ReadAllText(dlg.FileName);
+  }
+
+  private void CmdSave_Click(object sender, EventArgs e)
+  {
+      using var dlg = new SaveFileDialog { Filter = "Text|*.txt" };
+      if (dlg.ShowDialog() == DialogResult.OK)
+          File.WriteAllText(dlg.FileName, richTextBox1.Text);
+  }
+  ```

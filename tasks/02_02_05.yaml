@@ -1,0 +1,30 @@
+title: Klammern bei booleschen Ausdrücken
+question: |
+  Lege boolesche Ausdrücke A, B, C fest, z. B.:
+  
+  - `A = (5 < 0)`
+  - `B = (10 % 2 == 0)`
+  - `C = (3.5 >= 3)`
+  
+  Vergleiche die Auswertung von
+  - `!A || B && C`
+  - `(!A || B) && C`
+  
+  Erkläre in einem Kommentar, warum die Ergebnisse unterschiedlich sein können.
+solution: |
+  ```csharp
+  bool A = (5 < 0);          // false
+  bool B = (10 % 2 == 0);    // true
+  bool C = (3.5 >= 3);       // true
+
+  bool expr1 = !A || B && C;       // && vor ||
+  bool expr2 = (!A || B) && C;     // Klammern ändern die Rangfolge
+
+  string text =
+      $"!A || B && C     : {expr1}\n" +
+      $"(!A || B) && C   : {expr2}\n" +
+      $"Hinweis: '&&' hat höhere Priorität als '||'. Klammern können das ändern.";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Boolesche Ausdrücke & Klammern");
+  ```

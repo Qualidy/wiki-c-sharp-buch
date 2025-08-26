@@ -1,0 +1,17 @@
+title: RichTextBox – Formatierungen anwenden
+question: |
+  Erstelle Buttons **Fett, Kursiv, Unterstrichen**, die auf die aktuelle Auswahl in `RichTextBox` wirken.
+
+solution: |
+  ```csharp
+  private void ToggleStyle(FontStyle style)
+  {
+      var sel = richTextBox1.SelectionFont ?? richTextBox1.Font;
+      var newStyle = sel.Style ^ style;
+      richTextBox1.SelectionFont = new Font(sel, newStyle);
+  }
+
+  private void CmdBold_Click(object s, EventArgs e) => ToggleStyle(FontStyle.Bold);
+  private void CmdItalic_Click(object s, EventArgs e) => ToggleStyle(FontStyle.Italic);
+  private void CmdUnderline_Click(object s, EventArgs e) => ToggleStyle(FontStyle.Underline);
+  ```

@@ -1,0 +1,17 @@
+title: MessageBox & Laufzeit-Eigenschaften
+question: |
+  Erzeuge einen Button `CmdInfo`, der
+
+  - eine MessageBox mit zwei Zeilen zeigt
+  
+  - danach `LblAnzeige` leert und Formtitel auf „Bereit“ setzt
+solution: |
+  ```csharp
+  private void CmdInfo_Click(object sender, EventArgs e)
+  {
+      string text = "Erste Zeile\nZweite Zeile";
+      MessageBox.Show(text, "Ausgabe");
+      LblAnzeige.Text = string.Empty;
+      this.Text = "Bereit";
+  }
+  ```

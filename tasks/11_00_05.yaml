@@ -1,0 +1,25 @@
+title: WPF – Animation mit Storyboard
+question: |
+  Animiere die `Opacity` eines Buttons zwischen 0.2 und 1.0 im Ping‑Pong‑Modus.
+
+solution: |
+  ```xml
+  <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Anim" Height="200" Width="300">
+    <Grid>
+      <Button x:Name="Blink" Content="Blink" Width="120" Height="40">
+        <Button.Triggers>
+          <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+              <Storyboard AutoReverse="True" RepeatBehavior="Forever">
+                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                 From="0.2" To="1.0" Duration="0:0:1"/>
+              </Storyboard>
+            </BeginStoryboard>
+          </EventTrigger>
+        </Button.Triggers>
+      </Button>
+    </Grid>
+  </Window>
+  ```

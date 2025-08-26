@@ -1,0 +1,9 @@
+title: Ternärer Operator – gerade/ungerade
+question: |
+  Lies eine Ganzzahl (NumericUpDown, z. B. `NumZahl`, `DecimalPlaces=0`) und gib „gerade“/„ungerade“ mit `?:` aus.
+solution: |
+  ```csharp
+  int n = (int)NumZahl.Value;
+  string text = (n % 2 == 0) ? "gerade" : "ungerade";
+  LblAnzeige.Text = text;
+  ```

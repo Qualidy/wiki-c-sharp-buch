@@ -1,0 +1,19 @@
+title: ComboBox aus Array + Auswahl
+question: |
+  Erzeuge ein `string[]` mit fünf Städten und fülle die `ComboBox` (`CmbStadt`). Bei Auswahl: Stadt und Index anzeigen.
+solution: |
+  ```csharp
+  // Befüllen (z. B. im Form_Load)
+  string[] staedte = { "Kiel", "Hamburg", "Lübeck", "Flensburg", "Neumünster" };
+  CmbStadt.Items.Clear();
+  CmbStadt.Items.AddRange(staedte);
+
+  // Auswahl-Event
+  private void CmbStadt_SelectedIndexChanged(object sender, EventArgs e)
+  {
+      if (CmbStadt.SelectedIndex >= 0)
+      {
+          LblAnzeige.Text = $"Stadt: {CmbStadt.SelectedItem}, Index: {CmbStadt.SelectedIndex}";
+      }
+  }
+  ```

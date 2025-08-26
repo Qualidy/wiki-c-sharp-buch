@@ -1,0 +1,30 @@
+title: Debugging – Breakpoints & Watch (Anleitung)
+question: |
+  Übe Debugging in Visual Studio anhand einer kleinen Methode `SumUntil(n)`, die 1+…+n summiert.
+  Setze Breakpoints und beobachte Variablen im **Watch**‑Fenster.
+
+  **Vorgehen**
+
+  - Erstelle `int SumUntil(int n)` mit einer `for`‑Schleife.
+  - Setze einen Breakpoint auf die Zeile, die die Summe addiert.
+  - Starte im Debug‑Modus (F5), löse die Methode über einen Button aus und steuere mit F10/F11.
+  - Öffne das **Watch**‑Fenster und beobachte `i` und `sum`.
+
+solution: |
+  ```csharp
+  private int SumUntil(int n)
+  {
+      int sum = 0;
+      for (int i = 1; i <= n; i++)
+      {
+          sum += i; // Breakpoint hier setzen und i/sum beobachten
+      }
+      return sum;
+  }
+
+  private void CmdSum_Click(object sender, EventArgs e)
+  {
+      int n = (int)NumN.Value;
+      LblAnzeige.Text = SumUntil(n).ToString();
+  }
+  ```

@@ -1,0 +1,21 @@
+title: SQLite – Datenbank anlegen und Tabelle erstellen
+question: |
+  Lege eine lokale SQLite‑Datei `app.db` an und erstelle eine Tabelle `persons(id INTEGER PRIMARY KEY, name TEXT, year INT)`.
+
+  **Hinweis**
+
+  - Füge NuGet‑Paket `System.Data.SQLite` **oder** `Microsoft.Data.Sqlite` hinzu.
+
+solution: |
+  ```csharp
+  using System.Data.SQLite; // oder Microsoft.Data.Sqlite
+
+  private void CmdInit_Click(object sender, EventArgs e)
+  {
+      using var con = new SQLiteConnection("Data Source=app.db");
+      con.Open();
+      using var cmd = con.CreateCommand();
+      cmd.CommandText = "CREATE TABLE IF NOT EXISTS persons(id INTEGER PRIMARY KEY, name TEXT, year INT);";
+      cmd.ExecuteNonQuery();
+  }
+  ```

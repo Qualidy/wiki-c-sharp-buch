@@ -1,0 +1,16 @@
+title: if/else – Einlasskontrolle
+question: |
+  Lies Alter (`NumAlter`) und Ticket (`ChkTicket`). Gib aus:
+  
+  - Ab 18 **und** Ticket → „Einlass“
+  - sonst „kein Einlass“
+solution: |
+  ```csharp
+  int alter = (int)NumAlter.Value;
+  bool ticket = ChkTicket.Checked;
+
+  if (alter >= 18 && ticket)
+      LblAnzeige.Text = "Einlass";
+  else
+      LblAnzeige.Text = "kein Einlass";
+  ```

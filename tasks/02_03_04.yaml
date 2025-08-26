@@ -1,0 +1,14 @@
+title: NumericUpDown – Formatierte Anzeige
+question: |
+  Verwende ein `NumericUpDown` (`NumWert`) mit:
+  
+  - `DecimalPlaces = 1`, `Increment = 0.1`, `Minimum = -5.0`, `Maximum = 5.0`
+  - Zeige den Wert formatiert im Label (`F1`) und im Fenstertitel.
+solution: |
+  ```csharp
+  private void NumWert_ValueChanged(object sender, EventArgs e)
+  {
+      LblAnzeige.Text = NumWert.Value.ToString("F1");
+      this.Text = $"Wert: {NumWert.Value:F1}";
+  }
+  ```

@@ -1,0 +1,21 @@
+title: if/else – Temperaturklassifikation
+question: |
+  Lies eine Temperatur aus einem NumericUpDown (z. B. `NumTemp`) und gib im Label aus:
+  
+  - `< 0` → „Frost“
+  - `== 0` → „Gefrierpunkt“
+  - `> 0` → „Plusgrade“
+solution: |
+  ```csharp
+  decimal t = NumTemp.Value;
+  string text;
+
+  if (t < 0)
+      text = "Frost";
+  else if (t == 0)
+      text = "Gefrierpunkt";
+  else
+      text = "Plusgrade";
+
+  LblAnzeige.Text = text;
+  ```

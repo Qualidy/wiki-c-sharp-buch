@@ -1,0 +1,9 @@
+title: Kontextmenü – Rechtsklick auf Label
+question: |
+  Füge einem `Label` ein Kontextmenü (Rechtsklick) mit „Kopieren“ und „Löschen“ hinzu.
+
+solution: |
+  ```csharp
+  private void ctxCopy_Click(object sender, EventArgs e) { Clipboard.SetText(LblAnzeige.Text); }
+  private void ctxClear_Click(object sender, EventArgs e) { LblAnzeige.Text = ""; }
+  ```

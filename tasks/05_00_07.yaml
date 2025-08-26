@@ -1,0 +1,16 @@
+title: Record – Wertgleichheit demonstrieren
+question: |
+  Definiere `public record Punkt(int X, int Y);` und zeige, dass zwei Punkte mit gleichen Werten als gleich gelten.
+  Erkläre kurz im Kommentar den Unterschied zu Referenzgleichheit.
+
+solution: |
+  ```csharp
+  public record Punkt(int X, int Y);
+
+  private void CmdRecord_Click(object sender, EventArgs e)
+  {
+      var a = new Punkt(1,2);
+      var b = new Punkt(1,2);
+      LblAnzeige.Text = $"a==b: {a == b}";
+  }
+  ```

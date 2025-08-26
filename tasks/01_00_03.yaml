@@ -1,0 +1,16 @@
+title: Kommentare – einzeilig & mehrzeilig
+question: |
+  Ergänze zu `CmdHallo_Click` sinnvolle Kommentare und setze darüber einen mehrzeiligen Blockkommentar mit Zweck/Autor/Datum.
+solution: |
+  ```csharp
+  /*
+    Zweck: Schreibt einen Gruß ins Label.
+    Autor: <Dein Name>
+    Datum: <heute>
+  */
+  private void CmdHallo_Click(object sender, EventArgs e)
+  {
+      // Schreibt Text ins Label
+      LblAnzeige.Text = "Hallo, Welt!";
+  }
+  ```

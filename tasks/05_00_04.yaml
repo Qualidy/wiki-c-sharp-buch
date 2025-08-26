@@ -1,0 +1,30 @@
+title: Abstrakte Klasse & Polymorphie
+question: |
+  Erstelle `abstract class Figur` mit `abstract double Flaeche()` und leite `Rechteck` und `Kreis` ab.
+  Erzeuge beide und gib die Flächen über eine gemeinsame `List<Figur>` aus.
+
+solution: |
+  ```csharp
+  public abstract class Figur
+  {
+      public abstract double Flaeche();
+  }
+  public class Rechteck : Figur
+  {
+      public double W, H;
+      public Rechteck(double w, double h) { W = w; H = h; }
+      public override double Flaeche() => W * H;
+  }
+  public class Kreis : Figur
+  {
+      public double R;
+      public Kreis(double r) { R = r; }
+      public override double Flaeche() => Math.PI * R * R;
+  }
+
+  private void CmdFiguren_Click(object sender, EventArgs e)
+  {
+      var list = new List<Figur> { new Rechteck(3,2), new Kreis(2.5) };
+      LblAnzeige.Text = string.Join("\n", list.Select(f => f.Flaeche().ToString("F2")));
+  }
+  ```

@@ -1,0 +1,27 @@
+title: Timer-Automove (Wrap-around ohne if)
+question: |
+  Lasse ein Panel automatisch nach rechts laufen. Am rechten Rand soll es links wieder erscheinen (Wrap-around), ganz ohne `if`.
+  
+  - `Timer` (z. B. Intervall 30 ms), `CmdStart`, `CmdStop`, Panel `PnlBox`, Label `LblAnzeige`.
+solution: |
+  ```csharp
+  // Start/Stop
+  private void CmdStart_Click(object sender, EventArgs e)
+  {
+      Tmr.Interval = 30;
+      Tmr.Enabled = true;
+  }
+  private void CmdStop_Click(object sender, EventArgs e)
+  {
+      Tmr.Enabled = false;
+  }
+
+  // Tick: Wrap-around per Modulo
+  private void Tmr_Tick(object sender, EventArgs e)
+  {
+      int maxX = this.ClientSize.Width - PnlBox.Width;
+      int next = PnlBox.Left + 3;
+      PnlBox.Left = next % (maxX + 1);  // ohne if
+      LblAnzeige.Text = $"X: {PnlBox.Left}";
+  }
+  ```

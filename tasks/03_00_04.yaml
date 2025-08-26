@@ -1,0 +1,38 @@
+title: Eigene Ausnahme – Geschäftsregel prüfen
+question: |
+  Implementiere eine kleine Geschäftsregel: Ein Alterswert muss zwischen 0 und 120 liegen.
+  Bei Verstoß soll eine eigene Ausnahme `AgeOutOfRangeException` geworfen und gefangen werden.
+
+  **Schritte**
+
+  - Definiere eine Klasse `AgeOutOfRangeException : Exception` mit passendem Konstruktor.
+  - Schreibe eine Methode `ValidateAge(int age)`, die bei ungültigem Bereich die Ausnahme wirft.
+  - Fange die Ausnahme beim Klicken eines Buttons und zeige eine klare Meldung.
+
+solution: |
+  ```csharp
+  public class AgeOutOfRangeException : Exception
+  {
+      public AgeOutOfRangeException(string message) : base(message) {}
+  }
+
+  private void ValidateAge(int age)
+  {
+      if (age < 0 || age > 120)
+          throw new AgeOutOfRangeException($"Alter {age} ist außerhalb des erlaubten Bereichs.");
+  }
+
+  private void CmdCheckAge_Click(object sender, EventArgs e)
+  {
+      int age = (int)NumAge.Value;
+      try
+      {
+          ValidateAge(age);
+          MessageBox.Show("Alter ist gültig.");
+      }
+      catch (AgeOutOfRangeException ex)
+      {
+          MessageBox.Show(ex.Message, "Validierungsfehler");
+      }
+  }
+  ```

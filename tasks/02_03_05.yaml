@@ -1,0 +1,21 @@
+title: Timer – Blinken per Visible-Toggle
+question: |
+  Lasse ein Label blinken, indem du in jedem Tick `Visible` umschaltest (kein `if` nötig).
+  - `LblBlink`, `TmrBlink`, Buttons `CmdStart`, `CmdStop`
+solution: |
+  ```csharp
+  private void CmdStart_Click(object sender, EventArgs e)
+  {
+      TmrBlink.Interval = 400;
+      TmrBlink.Enabled = true;
+  }
+  private void CmdStop_Click(object sender, EventArgs e)
+  {
+      TmrBlink.Enabled = false;
+      LblBlink.Visible = true; // neutraler Zustand
+  }
+  private void TmrBlink_Tick(object sender, EventArgs e)
+  {
+      LblBlink.Visible = !LblBlink.Visible; // Umschalten ohne if
+  }
+  ```

@@ -1,0 +1,14 @@
+title: Auswahl anzeigen
+question: |
+  Bei `SelectedIndexChanged` gib den markierten Eintrag und den Index im Label aus.
+solution: |
+  ```csharp
+  private void LstZahlen_SelectedIndexChanged(object sender, EventArgs e)
+  {
+      if (LstZahlen.SelectedIndex >= 0)
+      {
+          var val = LstZahlen.SelectedItem;
+          LblAnzeige.Text = $"Wert: {val}, Index: {LstZahlen.SelectedIndex}";
+      }
+  }
+  ```

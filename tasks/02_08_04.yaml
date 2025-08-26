@@ -1,0 +1,10 @@
+title: Summe der markierten Einträge
+question: |
+  Aktiviere Mehrfachauswahl (`SelectionMode=MultiSimple` oder `MultiExtended`) und summiere **nur** die ausgewählten Einträge.
+solution: |
+  ```csharp
+  int sum = 0;
+  foreach (var item in LstZahlen.SelectedItems)
+      sum += Convert.ToInt32(item);
+  LblAnzeige.Text = $"Summe (selektiert): {sum}";
+  ```

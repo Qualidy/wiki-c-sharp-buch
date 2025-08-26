@@ -1,0 +1,19 @@
+title: Klick-Ereignisse – Hallo & Ende
+question: |
+  Erzeuge `CmdHallo_Click` und `CmdEnde_Click` per Doppelklick im Designer.
+  
+  - `CmdHallo`: schreibe „Hallo, Welt!“ ins Label
+  
+  - `CmdEnde`: beende das Programm
+solution: |
+  ```csharp
+  private void CmdHallo_Click(object sender, EventArgs e)
+  {
+      LblAnzeige.Text = "Hallo, Welt!";
+  }
+
+  private void CmdEnde_Click(object sender, EventArgs e)
+  {
+      Close();
+  }
+  ```

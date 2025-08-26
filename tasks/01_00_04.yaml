@@ -1,0 +1,15 @@
+title: ToString & Interpolation
+question: |
+  Lege `int x = 42;` an und gib aus:
+
+  - erste Zeile: `x.ToString()`
+  
+  - zweite Zeile: `Wert: {x}` per Interpolation
+solution: |
+  ```csharp
+  private void CmdHallo_Click(object sender, EventArgs e)
+  {
+      int x = 42;
+      LblAnzeige.Text = x.ToString() + "\n" + $"Wert: {x}";
+  }
+  ```

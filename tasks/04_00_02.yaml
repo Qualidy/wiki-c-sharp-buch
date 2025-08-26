@@ -1,0 +1,27 @@
+title: ref/out – Tauschen und Parsen
+question: |
+  Schreibe zwei kleine Helfer:
+
+  - `void Swap(ref int a, ref int b)` vertauscht zwei Werte.
+  - `bool TryReadInt(string s, out int value)` liefert `true`, wenn `s` eine Ganzzahl ist.
+
+  Teste beides in einem Button‑Klick und zeige die Ergebnisse.
+
+solution: |
+  ```csharp
+  private void Swap(ref int a, ref int b) { (a, b) = (b, a); }
+
+  private bool TryReadInt(string s, out int value)
+  {
+      return int.TryParse(s, out value);
+  }
+
+  private void CmdTest_Click(object sender, EventArgs e)
+  {
+      int x = 3, y = 7;
+      Swap(ref x, ref y);
+
+      bool ok = TryReadInt(TxtEingabe.Text, out int v);
+      LblAnzeige.Text = $"Swap: x={x}, y={y}\nParse: ok={ok}, v={v}";
+  }
+  ```

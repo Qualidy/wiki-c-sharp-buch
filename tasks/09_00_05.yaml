@@ -1,0 +1,24 @@
+title: Bild zeichnen
+question: |
+  Lade ein Bild aus Datei und zeichne es skaliert in die Form.
+
+solution: |
+  ```csharp
+  private Image? _img;
+
+  private void CmdLoadImg_Click(object sender, EventArgs e)
+  {
+      using var dlg = new OpenFileDialog { Filter = "Bilder|*.png;*.jpg;*.jpeg;*.bmp" };
+      if (dlg.ShowDialog() == DialogResult.OK) _img = Image.FromFile(dlg.FileName);
+      Invalidate();
+  }
+
+  private void Form1_Paint(object sender, PaintEventArgs e)
+  {
+      if (_img != null)
+      {
+          var g = e.Graphics;
+          g.DrawImage(_img, new Rectangle(10,10,200,150));
+      }
+  }
+  ```

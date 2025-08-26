@@ -1,0 +1,24 @@
+title: Arrays – Minimum, Maximum, Durchschnitt
+question: |
+  Lies eine kommaseparierte Liste von Ganzzahlen aus `TxtListe` ein und berechne auf einem `int[]`:
+
+  - Minimum und Maximum
+  - Summe und Durchschnitt (auf zwei Nachkommastellen)
+
+  Zeige die Ergebnisse mehrzeilig an.
+
+solution: |
+  ```csharp
+  private void CmdStats_Click(object sender, EventArgs e)
+  {
+      var parts = TxtListe.Text.Split(',', StringSplitOptions.RemoveEmptyEntries);
+      var arr = parts.Select(p => int.Parse(p.Trim())).ToArray();
+
+      int min = arr.Min();
+      int max = arr.Max();
+      int sum = arr.Sum();
+      double avg = arr.Average();
+
+      LblAnzeige.Text = $"Min: {min}\nMax: {max}\nSumme: {sum}\nØ: {avg:F2}";
+  }
+  ```

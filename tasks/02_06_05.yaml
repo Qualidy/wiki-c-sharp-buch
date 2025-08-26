@@ -1,0 +1,11 @@
+title: TrackBar steuert Schriftgröße
+question: |
+  TrackBar `TrbSize` (Min 8, Max 24) steuert live die Schriftgröße von `LblText` im `Scroll`-Event.
+solution: |
+  ```csharp
+  private void TrbSize_Scroll(object sender, EventArgs e)
+  {
+      float size = TrbSize.Value;
+      LblText.Font = new Font(LblText.Font.FontFamily, size, LblText.Font.Style);
+  }
+  ```

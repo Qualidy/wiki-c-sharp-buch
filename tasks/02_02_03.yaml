@@ -1,0 +1,28 @@
+title: Logische Operatoren (AND, OR, XOR, NOT)
+question: |
+  Verwende die Variablen `a = 5`, `b = 10` und prüfe:
+  
+  - `a > 0 && b != 10`
+  - `a > 0 || b != 10`
+  - `(a > 0) ^ (b != 10)`  (XOR)
+  - `!(a > 0)`
+  
+  Notiere in 1–2 Kommentaren die Unterschiede zwischen `&&`, `||` und `^`.
+solution: |
+  ```csharp
+  int a = 5, b = 10;
+
+  bool andRes = a > 0 && b != 10;     // true AND false -> false
+  bool orRes  = a > 0 || b != 10;     // true OR false  -> true
+  bool xorRes = (a > 0) ^ (b != 10);  // true XOR false -> true (genau ein Operand wahr)
+  bool notRes = !(a > 0);             // NOT true       -> false
+
+  string text =
+      $"AND (&&): {andRes}\n" +
+      $"OR  (||): {orRes}\n" +
+      $"XOR  (^): {xorRes}\n" +
+      $"NOT  (!): {notRes}";
+
+  // LblAnzeige.Text = text;
+  MessageBox.Show(text, "Logische Operatoren");
+  ```

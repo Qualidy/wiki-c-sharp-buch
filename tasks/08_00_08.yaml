@@ -1,0 +1,16 @@
+title: DataBinding – Grid bidirektional
+question: |
+  Binde ein `DataTable` an ein `DataGridView` und synchronisiere Änderungen zurück in SQLite (einfacher Ansatz: komplette Tabelle löschen/neu einfügen).
+
+solution: |
+  ```csharp
+  using System.Data;
+
+  // Lesen
+  using var con = new SQLiteConnection("Data Source=app.db");
+  con.Open();
+  using var da = new SQLiteDataAdapter("SELECT id,name,year FROM persons;", con);
+  var dt = new DataTable();
+  da.Fill(dt);
+  dataGridView1.DataSource = dt;
+  ```

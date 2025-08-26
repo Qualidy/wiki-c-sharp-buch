@@ -1,0 +1,26 @@
+title: Rekursion – Fakultät und Fibonacci (kleine n)
+question: |
+  Implementiere zwei rekursive Methoden mit kleiner `n`‑Begrenzung:
+
+  - `long Fak(int n)` mit `Fak(0) = 1`.
+  - `long Fib(int n)` mit `Fib(0)=0`, `Fib(1)=1`.
+
+  Zeige beide Werte für `n` aus einem `NumericUpDown` an und warne für zu großes `n`.
+
+solution: |
+  ```csharp
+  private long Fak(int n) => n <= 1 ? 1 : n * Fak(n - 1);
+
+  private long Fib(int n) => n <= 1 ? n : Fib(n - 1) + Fib(n - 2);
+
+  private void CmdCalc_Click(object sender, EventArgs e)
+  {
+      int n = (int)NumN.Value; // z. B. Max 20
+      if (n > 20)
+      {
+          MessageBox.Show("Bitte n ≤ 20 wählen.", "Warnung");
+          return;
+      }
+      LblAnzeige.Text = $"Fak({n}) = {Fak(n)}\nFib({n}) = {Fib(n)}";
+  }
+  ```

@@ -1,0 +1,20 @@
+title: if/else – Wertebereiche
+question: |
+  Lies einen Wert −10…+10 (`NumWert`). Gib aus:
+  
+  - `< 0` → „negativ“
+  - `== 0` → „null“
+  - `> 0 && <= 9` → „positiv, einstellig“
+  - `>= 10` → „positiv, zweistellig“
+solution: |
+  ```csharp
+  int v = (int)NumWert.Value;
+  string text;
+
+  if (v < 0) text = "negativ";
+  else if (v == 0) text = "null";
+  else if (v > 0 && v <= 9) text = "positiv, einstellig";
+  else text = "positiv, zweistellig";
+
+  LblAnzeige.Text = text;
+  ```

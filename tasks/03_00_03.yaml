@@ -1,0 +1,33 @@
+title: finally – Ressourcen bereinigen nach Dateioperation
+question: |
+  Simuliere das Öffnen einer Datei mit `StreamReader`. Lies die erste Zeile und zeige sie,
+  unabhängig von Fehlern, sauber an. Stelle sicher, dass der Reader im `finally` immer geschlossen wird.
+
+  **Akzeptanzkriterien**
+
+  - Bei nicht vorhandener Datei erscheint eine verständliche Fehlermeldung.
+  - Der Reader wird im `finally` geschlossen (auch bei Fehlern).
+
+solution: |
+  ```csharp
+  using System.IO;
+
+  private void CmdReadFirstLine_Click(object sender, EventArgs e)
+  {
+      StreamReader? sr = null;
+      try
+      {
+          sr = new StreamReader("data.txt");
+          string? line = sr.ReadLine();
+          MessageBox.Show(line ?? "(leer)", "Erste Zeile");
+      }
+      catch (IOException ex)
+      {
+          MessageBox.Show($"Dateifehler: {ex.Message}", "IO-Fehler");
+      }
+      finally
+      {
+          sr?.Close();
+      }
+  }
+  ```

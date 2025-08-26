@@ -1,0 +1,17 @@
+title: "Vererbung – `Mitarbeiter : Person` mit `virtual/override`"
+question: |
+  Leite `Mitarbeiter` von `Person` ab und ergänze eine Eigenschaft `Abteilung`.
+  Überschreibe `ToString()` und rufe `base.ToString()` auf.
+
+solution: |
+  ```csharp
+  public class Mitarbeiter : Person
+  {
+      public string Abteilung { get; set; }
+      public Mitarbeiter(string name, int jahr, string abteilung) : base(name, jahr)
+      {
+          Abteilung = abteilung;
+      }
+      public override string ToString() => base.ToString() + $" – {Abteilung}";
+  }
+  ```

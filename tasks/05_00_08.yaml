@@ -1,0 +1,15 @@
+title: Operatorüberladung – Vektor addieren
+question: |
+  Erstelle einen `struct Vektor2D` mit `X`, `Y` und überlade `+` zur komponentenweisen Addition.
+  Demonstriere die Addition in der UI.
+
+solution: |
+  ```csharp
+  public struct Vektor2D
+  {
+      public double X, Y;
+      public Vektor2D(double x, double y) { X = x; Y = y; }
+      public static Vektor2D operator +(Vektor2D a, Vektor2D b) => new Vektor2D(a.X + b.X, a.Y + b.Y);
+      public override string ToString() => $"({X},{Y})";
+  }
+  ```

@@ -1,0 +1,20 @@
+title: switch – Wochentag zu Werktag/Wochenende
+question: |
+  Lege `enum Wochentag { Mo, Di, Mi, Do, Fr, Sa, So }` und lies einen Wert (z. B. aus ComboBox).
+  Gib mit `switch` aus: „Werktag“ für Mo–Fr, „Wochenende“ für Sa/So.
+solution: |
+  ```csharp
+  // enum (einmalig auf Klassenebene)
+  enum Wochentag { Mo, Di, Mi, Do, Fr, Sa, So }
+
+  // Annahme: ausgewählter Wert in 'tag'
+  Wochentag tag = Wochentag.Mo; // Beispiel
+
+  string text = tag switch
+  {
+      Wochentag.Sa or Wochentag.So => "Wochenende",
+      _ => "Werktag"
+  };
+
+  LblAnzeige.Text = text;
+  ```

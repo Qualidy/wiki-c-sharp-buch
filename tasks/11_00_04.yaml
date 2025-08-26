@@ -1,0 +1,38 @@
+title: WPF – ItemsControl mit Datenliste
+question: |
+  Zeige eine Liste von Personen in einem `ItemsControl` mit einem `DataTemplate` an.
+
+solution: |
+  ```xml
+  <Window x:Class="Demo.MainWindow"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Items" Height="300" Width="400">
+    <StackPanel>
+      <ItemsControl x:Name="People">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Text="{Binding Name}" Margin="0,0,8,0"/>
+              <TextBlock Text="{Binding Geburtsjahr}"/>
+            </StackPanel>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+  </Window>
+  ```
+
+  ```csharp
+  public partial class MainWindow : Window
+  {
+      public MainWindow()
+      {
+          InitializeComponent();
+          People.ItemsSource = new []
+          {
+              new Person("Alex",1992), new Person("Sam",1988)
+          };
+      }
+  }
+  ```

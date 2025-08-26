@@ -1,0 +1,25 @@
+title: GroupBox – zwei unabhängige Optionen
+question: |
+  Zwei GroupBoxen: A (Farbe: Rot/Grün/Blau), B (Stil: Fett/Kursiv/Unterstrichen).
+  
+  Wähle unabhängig – setze `LblText.ForeColor` und `LblText.Font` entsprechend.
+solution: |
+  ```csharp
+  private void Farbe_CheckedChanged(object sender, EventArgs e)
+  {
+      if (!((RadioButton)sender).Checked) return;
+      if (RbtRot.Checked)   LblText.ForeColor = Color.Red;
+      if (RbtGruen.Checked) LblText.ForeColor = Color.Green;
+      if (RbtBlau.Checked)  LblText.ForeColor = Color.Blue;
+  }
+
+  private void Stil_CheckedChanged(object sender, EventArgs e)
+  {
+      if (!((RadioButton)sender).Checked) return;
+      FontStyle style = FontStyle.Regular;
+      if (RbtFett.Checked)       style |= FontStyle.Bold;
+      if (RbtKursiv.Checked)     style |= FontStyle.Italic;
+      if (RbtUnterstrichen.Checked) style |= FontStyle.Underline;
+      LblText.Font = new Font(LblText.Font, style);
+  }
+  ```

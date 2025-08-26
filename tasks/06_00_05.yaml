@@ -1,0 +1,37 @@
+title: XML – einfache Struktur speichern/laden
+question: |
+  Speichere eine kleine Konfiguration als XML und lade sie wieder.
+
+  **Beispielstruktur**
+
+  - `<config>`
+  - `<window title="..." width="..." height="..."/>`
+  - `</config>`
+
+solution: |
+  ```csharp
+  using System.Xml.Linq;
+
+  private void CmdXmlSave_Click(object sender, EventArgs e)
+  {
+      var doc = new XDocument(
+          new XElement("config",
+              new XElement("window",
+                  new XAttribute("title", this.Text),
+                  new XAttribute("width", this.Width),
+                  new XAttribute("height", this.Height)
+              )
+          )
+      );
+      doc.Save("config.xml");
+  }
+
+  private void CmdXmlLoad_Click(object sender, EventArgs e)
+  {
+      var doc = XDocument.Load("config.xml");
+      var win = doc.Root!.Element("window")!;
+      this.Text = (string)win.Attribute("title")!;
+      this.Width = (int)win.Attribute("width")!;
+      this.Height = (int)win.Attribute("height")!;
+  }
+  ```

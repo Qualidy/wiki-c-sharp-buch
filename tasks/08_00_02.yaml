@@ -1,0 +1,15 @@
+title: INSERT – Parameter verwenden
+question: |
+  Füge einen Datensatz in `persons` ein. Werte stammen aus `TxtName` und `NumJahr`.
+  Verwende **parametrisierte** SQL‑Befehle.
+
+solution: |
+  ```csharp
+  using var con = new SQLiteConnection("Data Source=app.db");
+  con.Open();
+  using var cmd = con.CreateCommand();
+  cmd.CommandText = "INSERT INTO persons(name, year) VALUES(@n, @y);";
+  cmd.Parameters.AddWithValue("@n", TxtName.Text);
+  cmd.Parameters.AddWithValue("@y", (int)NumJahr.Value);
+  cmd.ExecuteNonQuery();
+  ```

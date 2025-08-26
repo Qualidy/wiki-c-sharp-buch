@@ -1,0 +1,17 @@
+title: Delegates & Events – Button‑Klick verkabeln
+question: |
+  Lege einen eigenen `delegate void Log(string msg);` an und weise einer Variable eine Methode zu,
+  die Meldungen in eine `ListBox` schreibt. Rufe den Delegate im Button‑Klick auf.
+
+solution: |
+  ```csharp
+  public delegate void Log(string msg);
+
+  private void LogToList(string msg) => LstLog.Items.Add(msg);
+
+  private void CmdDo_Click(object sender, EventArgs e)
+  {
+      Log logger = LogToList;
+      logger($"Clicked at {DateTime.Now}");
+  }
+  ```

@@ -1,0 +1,9 @@
+title: ListBox füllen (1..n)
+question: |
+  Fülle eine `ListBox` (`LstZahlen`) mit den Zahlen 1..n (NumericUpDown `NumN`) per `for`.
+solution: |
+  ```csharp
+  LstZahlen.Items.Clear();
+  int n = (int)NumN.Value;
+  for (int i = 1; i <= n; i++) LstZahlen.Items.Add(i);
+  ```

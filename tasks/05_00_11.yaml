@@ -1,0 +1,26 @@
+title: Mehrere Formulare – Dialog für `Person` eingeben
+question: |
+  Erstelle ein zweites Formular `FrmPersonEdit`, in dem `Name` und `Geburtsjahr` eingegeben werden.
+  Öffne es modal (`ShowDialog`) und übernimm die Daten zurück ins Hauptformular.
+
+  **Hinweis**
+
+  - Übergabe über öffentliche Properties des Dialogs.
+
+solution: |
+  ```csharp
+  // In FrmPersonEdit
+  public string PersonName { get; set; } = "";
+  public int Geburtsjahr { get; set; } = 2000;
+  // OK-Button: Werte aus Controls in Properties schreiben; DialogResult = OK;
+
+  // Im Hauptformular:
+  private void CmdEdit_Click(object sender, EventArgs e)
+  {
+      using var dlg = new FrmPersonEdit();
+      if (dlg.ShowDialog() == DialogResult.OK)
+      {
+          LblAnzeige.Text = $"{dlg.PersonName} ({dlg.Geburtsjahr})";
+      }
+  }
+  ```
