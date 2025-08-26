@@ -1,0 +1,23 @@
+site_name: Ergänzungen zum C# Buch
+
+theme:
+  name: material
+  palette:
+    primary: amber
+    accent: indigo
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.tracking
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - toc.integrate
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  
+copyright: Copyright &copy; 2025 Qualidy GmbH
