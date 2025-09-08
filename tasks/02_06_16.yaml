@@ -1,0 +1,67 @@
+title: Checkbox zeigt GroupBox mit 2 Optionen
+question: |
+  Erstelle eine CheckBox `ChkZusatz` (Text: „Zusatzoptionen anzeigen“).
+
+  Erstelle eine GroupBox `GbxZusatz` (Text: „Zusatzoptionen“) mit **zwei RadioButtons**:
+
+  - `RbA` (Text: „Option A“) – **soll vorausgewählt sein**.
+  
+  - `RbB` (Text: „Option B“).
+
+  Erstelle ein **immer sichtbares** Label `LblAuswahl`, das die aktuelle Auswahl beschreibt.
+
+  Starte so:
+  
+  - `GbxZusatz.Visible = false`
+  
+  - `RbA.Checked = true` (Vorauswahl)
+  
+  - `LblAuswahl.Text = "Auswahl: (deaktiviert)"`
+
+  Verhalten:
+  
+  - Wenn `ChkZusatz` angehakt wird → `GbxZusatz` sichtbar und `LblAuswahl` zeigt die aktuell ausgewählte Option.
+  
+  - Wenn `ChkZusatz` abgewählt wird → `GbxZusatz` unsichtbar und `LblAuswahl` zeigt „(deaktiviert)“.
+  
+  - Beim Umschalten zwischen `RbA` und `RbB` wird `LblAuswahl` entsprechend aktualisiert.
+
+solution: |
+  ```csharp
+  // Angenommene Namen und Verdrahtung:
+  //   CheckBox:   ChkZusatz          (CheckedChanged = ChkZusatz_CheckedChanged)
+  //   GroupBox:   GbxZusatz          (Visible = false)
+  //   RadioBtns:  RbA, RbB           (beide CheckedChanged = RbOption_CheckedChanged)
+  //   Label:      LblAuswahl         (Text = "Auswahl: (deaktiviert)")
+  //   Designer:   RbA.Checked = true (Vorauswahl)
+
+  private void ChkZusatz_CheckedChanged(object sender, EventArgs e)
+  {
+      GbxZusatz.Visible = ChkZusatz.Checked;
+
+      if (ChkZusatz.Checked)
+      {
+          // Zeige die aktuell gewählte Option (RbA ist standardmäßig vorausgewählt)
+          LblAuswahl.Text = $"Auswahl: {(RbA.Checked ? RbA.Text : RbB.Text)}";
+      }
+      else
+      {
+          LblAuswahl.Text = "Auswahl: (deaktiviert)";
+      }
+  }
+
+  private void RbOption_CheckedChanged(object sender, EventArgs e)
+  {
+      RadioButton rb = (RadioButton)sender;
+      if (!rb.Checked)
+      {
+          return;
+      }
+
+      // Nur aktualisieren, wenn die Zusatz-Optionen sichtbar sind
+      if (GbxZusatz.Visible)
+      {
+          LblAuswahl.Text = $"Auswahl: {rb.Text}";
+      }
+  }
+  ```

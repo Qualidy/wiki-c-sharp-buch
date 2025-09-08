@@ -1,0 +1,28 @@
+title: 3 Radio Buttons - 3 Funktionen
+question: |
+  Erstelle drei Radiobuttons und ein Label.
+  Sorge dafür, dass sich die Farbe des Textes ändert, wenn man einen der Radiobuttons klickt.
+
+  Baue die Lösung dabei so, dass jeder Button eine eigene Funktion hat.
+solution: |
+  ```csharp
+  // Angenommene Namen:
+  //   RadioButtons: RbRot, RbGruen, RbBlau
+  //   Label:        LblText
+  // Jeder RadioButton hat seine eigene Ereignisfunktion (CheckedChanged).
+
+  private void RbRot_CheckedChanged(object sender, EventArgs e)
+  {
+      if (RbRot.Checked) LblText.ForeColor = Color.Red;
+  }
+
+  private void RbGruen_CheckedChanged(object sender, EventArgs e)
+  {
+      if (RbGruen.Checked) LblText.ForeColor = Color.Green;
+  }
+
+  private void RbBlau_CheckedChanged(object sender, EventArgs e)
+  {
+      if (RbBlau.Checked) LblText.ForeColor = Color.Blue;
+  }
+  ```

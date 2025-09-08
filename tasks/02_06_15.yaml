@@ -1,0 +1,51 @@
+title: 2 GroupBoxen – Kontakt & Versand
+question: |
+  Erstelle ein kleines Formular mit zwei GroupBoxen.
+
+  **1) GroupBox „Kontakt“ (`GbxKontakt`)**
+
+  - Zwei RadioButtons: `RbMail` (Text: „E-Mail“) und `RbTelefon` (Text: „Telefon“).
+
+  **2) GroupBox „Versand“ (`GbxVersand`)**
+
+  - Zwei RadioButtons: `RbStandard` (Text: „Standard“) und `RbExpress` (Text: „Express“).
+
+  **3) Auswertung**
+
+  - Ein Button `BtnAuswerten` (Text: „Auswahl anzeigen“).
+
+  - Ein Label `LblAusgabe` (leer).
+
+  - Beim Klick auf den Button soll im Label stehen, welche Kontaktart und welche Versandart gewählt wurden, z. B.: `Kontakt: E-Mail | Versand: Express`.
+
+  - Starte ohne Vorauswahl.
+
+  - Der Button `BtnAuswerten` ist nur anklickbar, wenn in **beiden** GroupBoxen jeweils eine Option gewählt wurde.
+solution: |
+  ```csharp
+  // Angenommene Namen:
+  //   GroupBoxen: GbxKontakt, GbxVersand
+  //   RadioButtons: RbMail, RbTelefon, RbStandard, RbExpress
+  //   Button: BtnAuswerten
+  //   Label: LblAusgabe
+  // Hinweise: Setze im Designer anfangs BtnAuswerten.Enabled = false.
+  //           Starte ohne Vorauswahl (alle RadioButtons: Checked = false).
+
+  // Allen vier RadioButtons im Designer dasselbe Ereignis zuweisen:
+  // CheckedChanged = Rb_CheckedChanged
+
+  private void Rb_CheckedChanged(object sender, EventArgs e)
+  {
+      bool kontaktGewählt = RbMail.Checked || RbTelefon.Checked;
+      bool versandGewählt = RbStandard.Checked || RbExpress.Checked;
+      BtnAuswerten.Enabled = kontaktGewählt && versandGewählt;
+  }
+
+  private void BtnAuswerten_Click(object sender, EventArgs e)
+  {
+      // Button ist nur aktiv, wenn in beiden Gruppen etwas gewählt ist.
+      string kontakt = RbMail.Checked ? "E-Mail" : "Telefon";
+      string versand = RbExpress.Checked ? "Express" : "Standard";
+      LblAusgabe.Text = $"Kontakt: {kontakt} | Versand: {versand}";
+  }
+  ```

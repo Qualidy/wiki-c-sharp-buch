@@ -1,0 +1,31 @@
+title: Textfeld aktivieren
+question: |
+  Erstelle drei Radiobuttons mit den Texten "Herr", "Frau", "Frei wählbar".
+
+  Erstellen Sie eine Textbox neben den dritten Radiobutton. Konfiguriere diesen so, 
+  dass man nur in diesen schreiben kann, wenn "Frei wählbar" ausgewählt ist.
+  
+  Erstelle eine weitere Textbox für deinen Namen.
+
+  Erstelle einen Button mit dem Text "Grüß mich", der Nutzer mit seinem Namen und der
+  gewünschten Anrede anspricht.
+solution: |
+  ```csharp
+  // Angenommene Namen:
+  //   RbHerr, RbFrau, RbFrei  (alle -> CheckedChanged = RbAnrede_CheckedChanged)
+  //   TbFrei (Enabled = false), TbName, BtnGruesMich (-> Click), LblGruss
+
+  private void RbAnrede_CheckedChanged(object sender, EventArgs e)
+  {
+      TbFrei.Enabled = RbFrei.Checked;
+  }
+
+  private void BtnGruesMich_Click(object sender, EventArgs e)
+  {
+      string anrede = "Herr";
+      if (RbFrau.Checked) { anrede = "Frau"; }
+      if (RbFrei.Checked) { anrede = TbFrei.Text; }
+
+      LblGruss.Text = $"Hallo {anrede} {TbName.Text}!";
+  }
+  ```

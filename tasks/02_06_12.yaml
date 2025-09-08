@@ -1,0 +1,53 @@
+title: 3 Radio Buttons deaktivieren
+question: |
+  Erstelle zwei Radiobuttons.
+  
+  Erstelle einen Button, der dafür sorgt, dass keiner der zwei Radiobuttons ausgewählt ist.
+  
+  Erstelle einen weiteren Button. Konfiguriere ihn so, dass er nur dann anklickbar ist,
+  einer der Radiobuttons ausgewählt ist.
+solution: |
+  ```csharp
+  // Angenommene Namen:
+  //   RadioButtons: RbA, RbB
+  //   Button zum Leeren: BtnLeeren
+  //   Nur-aktiv-wenn-ausgewählt-Button: BtnAktion
+  // Hinweis: Setze im Designer anfangs BtnAktion.Enabled = false.
+
+  private void RbA_CheckedChanged(object sender, EventArgs e)
+  {
+      // Aktivierbar nur, wenn mind. einer ausgewählt ist.
+      if (RbA.Checked || RbB.Checked)
+      {
+          BtnAktion.Enabled = true;
+      }
+      else
+      {
+          BtnAktion.Enabled = false;
+      }
+  }
+
+  private void RbB_CheckedChanged(object sender, EventArgs e)
+  {
+      // Gleiche Logik wie oben (kein Extra-Helfer, wie gefordert bis hierhin).
+      if (RbA.Checked || RbB.Checked)
+      {
+          BtnAktion.Enabled = true;
+      }
+      else
+      {
+          BtnAktion.Enabled = false;
+      }
+  }
+
+  private void BtnLeeren_Click(object sender, EventArgs e)
+  {
+      // Beide Radiobuttons abwählen -> nichts ausgewählt.
+      RbA.Checked = false;
+      RbB.Checked = false;
+
+      // Konsistent: Aktion-Button ist nun nicht anklickbar.
+      BtnAktion.Enabled = false;
+  }
+
+  ```
