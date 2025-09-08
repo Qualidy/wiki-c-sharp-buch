@@ -2,15 +2,15 @@ site_name: Ergänzungen zum C# Buch
 
 nav:
   - Übersicht: index.md
-  - 1 Einführung: content/1.md
+  # - 1 Einführung: content/1.md
   - 2 Grundlagen: content/2.md
-  - 3 Fehlerbehandlung: content/3.md
-  - 4 Erweiterte Grundlagen: content/4.md
-  - 5 Objektorientierte Programmierung: content/5.md
-  - 6 Wichtige Klassen in .NET: content/6.md
-  - 7 Weitere Elemente eines Windows-Programms: content/7.md
-  - 8 Datenbankanwendungen: content/8.md
-  - 9 Zeichnen mit GDI+: content/9.md
+  # - 3 Fehlerbehandlung: content/3.md
+  # - 4 Erweiterte Grundlagen: content/4.md
+  # - 5 Objektorientierte Programmierung: content/5.md
+  # - 6 Wichtige Klassen in .NET: content/6.md
+  # - 7 Weitere Elemente eines Windows-Programms: content/7.md
+  # - 8 Datenbankanwendungen: content/8.md
+  # - 9 Zeichnen mit GDI+: content/9.md
 
 theme:
   name: material
