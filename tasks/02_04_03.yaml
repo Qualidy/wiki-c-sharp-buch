@@ -1,6 +1,7 @@
 title: Ternärer Operator – gerade/ungerade
 question: |
   Lies eine Ganzzahl (NumericUpDown, z. B. `NumZahl`, `DecimalPlaces=0`) und gib „gerade“/„ungerade“ mit `?:` aus.
+tip: Mit hilfe des `%`-Operators kann man bestimmen, ob eine Zahl gerade oder ungerade ist. Rechachiere wie das geht!
 solution: |
   ```csharp
   int n = (int)NumZahl.Value;

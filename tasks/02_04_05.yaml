@@ -5,16 +5,29 @@ question: |
   - `< 0` → „negativ“
   - `== 0` → „null“
   - `> 0 && <= 9` → „positiv, einstellig“
-  - `>= 10` → „positiv, zweistellig“
+  - `>= 10` → „positiv und mindestens zweistellig“
 solution: |
   ```csharp
   int v = (int)NumWert.Value;
   string text;
 
-  if (v < 0) text = "negativ";
-  else if (v == 0) text = "null";
-  else if (v > 0 && v <= 9) text = "positiv, einstellig";
-  else text = "positiv, zweistellig";
+  if (v < 0)
+  {
+      text = "negativ";
+  }
+  else if (v == 0)
+  {
+      text = "null";
+  }
+  else if (v > 0 && v <= 9)
+  {
+      text = "positiv, einstellig";
+  }
+  else
+  {
+      text = "positiv und mindestens zweistellig";
+  }
+
 
   LblAnzeige.Text = text;
   ```

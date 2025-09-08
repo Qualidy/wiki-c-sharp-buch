@@ -8,12 +8,30 @@ solution: |
   int note = (int)NumNote.Value;
   string text;
 
-  if (note == 1) text = "sehr gut";
-  else if (note == 2) text = "gut";
-  else if (note == 3) text = "befriedigend";
-  else if (note == 4) text = "ausreichend";
-  else if (note == 5) text = "mangelhaft";
-  else text = "ungenügend";
+  if (note == 1)
+  {
+      text = "sehr gut";
+  }
+  else if (note == 2)
+  {
+      text = "gut";
+  }
+  else if (note == 3)
+  {
+      text = "befriedigend";
+  }
+  else if (note == 4)
+  {
+      text = "ausreichend";
+  }
+  else if (note == 5)
+  {
+      text = "mangelhaft";
+  }
+  else
+  {
+      text = "ungenügend";
+  }
 
   LblAnzeige.Text = text;
   ```

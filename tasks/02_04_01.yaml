@@ -8,14 +8,19 @@ question: |
 solution: |
   ```csharp
   decimal t = NumTemp.Value;
-  string text;
 
   if (t < 0)
-      text = "Frost";
+  {
+      LblAnzeige.Text = "Frost";
+  }
   else if (t == 0)
-      text = "Gefrierpunkt";
+  {
+      LblAnzeige.Text = "Gefrierpunkt";
+  }
   else
-      text = "Plusgrade";
+  {
+      LblAnzeige.Text = "Plusgrade";
+  }
 
-  LblAnzeige.Text = text;
   ```
+  
