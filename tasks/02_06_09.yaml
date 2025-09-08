@@ -1,0 +1,45 @@
+title: Vier Checkboxen – „Alle auswählen“
+question: |
+  Erstelle vier Checkboxen.
+  Die **erste Checkbox** erhält den Text „Alle auswählen“.
+
+  Programmiere die erste Checkbox so, dass wenn sie **aktiviert** wird,
+  auch alle **anderen** Checkboxen aktiviert werden
+  (und beim **Deaktivieren** alle anderen wieder deaktiviert werden).
+solution: |
+  **WinForms (VS 2022)**
+
+  _Benennung im Designer_  
+  - CheckBox 1: `ChkAlleAuswaehlen` (Text: **Alle auswählen**)  
+  - CheckBox 2: `ChkOption1` (Text z. B. **Option 1**)  
+  - CheckBox 3: `ChkOption2` (Text z. B. **Option 2**)  
+  - CheckBox 4: `ChkOption3` (Text z. B. **Option 3**)
+
+  **Form1.cs**
+  ```csharp
+  namespace DeineApp
+  {
+      public partial class Form1 : Form
+      {
+          public Form1()
+          {
+              InitializeComponent();
+
+              // Anfangszustand (optional)
+              ChkAlleAuswaehlen.Checked = false;
+              ChkOption1.Checked = false;
+              ChkOption2.Checked = false;
+              ChkOption3.Checked = false;
+          }
+
+          // "Alle auswählen" steuert die übrigen Checkboxen
+          private void ChkAlleAuswaehlen_CheckedChanged(object sender, EventArgs e)
+          {
+              bool state = ChkAlleAuswaehlen.Checked;
+              ChkOption1.Checked = state;
+              ChkOption2.Checked = state;
+              ChkOption3.Checked = state;
+          }
+      }
+  }
+  ```

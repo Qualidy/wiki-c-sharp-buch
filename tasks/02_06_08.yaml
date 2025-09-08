@@ -1,0 +1,65 @@
+title: Versteckter Knopf
+question: |
+  Erstelle zwei Checkboxen.
+
+  Sorge dafür, dass man zu Beginn nur eine von
+  den zwei Boxen nutzen kann.
+
+  Sobald die erste Checkbox aktiviert wurde, kann auch die
+  andere Checkbox angeklickt werden.
+
+  Wenn die zweite Checkbox aktiviert wurde, dann
+  erscheint ein bisher unsichtbarer Button.
+  Wenn auf diesen Button geklickt wird,
+  wird das Programm geschlossen.
+  
+solution: |
+  **WinForms (VS 2022)**
+
+  _Benennung im Designer_  
+  - CheckBox 1: `ChkErste` (Text z. B. **Erste Option**)  
+  - CheckBox 2: `ChkZweite` (Text z. B. **Zweite Option**)  
+  - Button: `CmdBeenden` (Text: **Beenden**)
+
+  _Startzustand (im Designer setzen oder im Code unten):_  
+  - `ChkZweite.Enabled = false`  
+  - `CmdBeenden.Visible = false`
+
+  **Form1.cs**
+  ```csharp
+  namespace DeineApp
+  {
+      public partial class Form1 : Form
+      {
+          public Form1()
+          {
+              InitializeComponent();
+          }
+
+          // Sobald die erste Checkbox AKTIV ist, darf die zweite benutzt werden.
+          private void ChkErste_CheckedChanged(object sender, EventArgs e)
+          {
+              ChkZweite.Enabled = ChkErste.Checked;
+              if (!ChkZweite.Enabled)
+              {
+                  // Wenn wieder gesperrt, zweite abwählen und Button verstecken
+                  ChkZweite.Checked = false;
+                  CmdBeenden.Visible = false;
+              }
+          }
+
+          // Wenn die zweite Checkbox aktiviert wird, erscheint der Button.
+          // (Deaktivieren blendet ihn wieder aus.)
+          private void ChkZweite_CheckedChanged(object sender, EventArgs e)
+          {
+              CmdBeenden.Visible = ChkZweite.Checked;
+          }
+
+          // Button schließt die Anwendung.
+          private void CmdBeenden_Click(object sender, EventArgs e)
+          {
+              Close();
+          }
+      }
+  }
+  ```
