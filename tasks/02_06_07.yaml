@@ -1,31 +1,93 @@
 title: Eine Checkbox
 question: |
-  Erstelle eine Checkbox mit den Text "Großschrift".
-  Erstelle ein Label mit einem Text.
+  Erstelle eine Checkbox mit den Text "Zustimmen".
+  Erstelle ein Label mit dem schwarzen Text: "Wir benötigen ihre Zustimmung".
 
-  Finde heraus, wie du die Schriftgröße des Textes ändern kannst.
+  Finde heraus, wie du die Farbe eines Textes ändern kannst.
 
   Sorge dafür, dass wenn du die Checkbox aktivierst,
-  die Schrift im Label vergrößert wird.
+  der Text grün wird und lautet "Danke für Ihre Zustimmung!".
+
+  Wenn die Checkbox deaktiviert wird, dann soll
+  wieder der ursprüngliche schwarze Text erscheinen.
+
+  Bonus: Speichere die Farben und Texte in Konstanten.
+tip: |
+  Textfarbe ändern:
+
+  ```csharp
+  LblHinweis.ForeColor = Color.Green; // oder Color.Black
+  ```
 solution: |
   ```csharp
   namespace DeineApp
   {
       public partial class Form1 : Form
       {
-          private const Font normalFont;
-          private const Font largeFont;
+          public Form1()
+          {
+              InitializeComponent();
+
+              // Anfangszustand sicherstellen
+              LblHinweis.Text = "Wir benötigen ihre Zustimmung";
+              LblHinweis.ForeColor = Color.Black;
+
+          }
+
+          private void ChkZustimmen_CheckedChanged(object sender, EventArgs e)
+          {
+              if (ChkZustimmen.Checked)
+              {
+                  LblHinweis.Text = "Danke für Ihre Zustimmung!";
+                  LblHinweis.ForeColor = Color.Green;
+              }
+              else
+              {
+                  LblHinweis.Text = "Wir benötigen ihre Zustimmung";
+                  LblHinweis.ForeColor = Color.Black;
+              }
+          }
+      }
+  }
+  ```
+
+  Lösung mit Bonus:
+
+  ```csharp
+  namespace DeineApp
+  {
+      public partial class Form1 : Form
+      {
+          // Texte als Konstanten
+          private const string TEXT_DEFAULT = "Wir benötigen ihre Zustimmung";
+          private const string TEXT_OK      = "Danke für Ihre Zustimmung!";
+
+          // Farben als schreibgeschützte Felder
+          private static readonly Color COLOR_DEFAULT = Color.Black;
+          private static readonly Color COLOR_OK      = Color.Green;
 
           public Form1()
           {
               InitializeComponent();
+
+              // Anfangszustand
+              LblHinweis.Text = TEXT_DEFAULT;
+              LblHinweis.ForeColor = COLOR_DEFAULT;
           }
 
-          private void ChkGrossschrift_CheckedChanged(object sender, EventArgs e)
+          private void ChkZustimmen_CheckedChanged(object sender, EventArgs e)
           {
-              LblText.Font = ChkGrossschrift.Checked ? largeFont : normalFont;
+              if (ChkZustimmen.Checked)
+              {
+                  LblHinweis.Text = TEXT_OK;
+                  LblHinweis.ForeColor = COLOR_OK;
+              }
+              else
+              {
+                  LblHinweis.Text = TEXT_DEFAULT;
+                  LblHinweis.ForeColor = COLOR_DEFAULT;
+              }
           }
       }
   }
-
   ```

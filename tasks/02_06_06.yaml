@@ -12,6 +12,7 @@ solution: |
 
   _Benennung im Designer_  
   Setze im Eigenschaftenfenster die Namen:
+  
   - `ChkLinks`, `ChkRechts` (CheckBox)
   - `CmdErster`, `CmdZweiter` (Button)
 
@@ -48,3 +49,4 @@ solution: |
           }
       }
   }
+  ```
