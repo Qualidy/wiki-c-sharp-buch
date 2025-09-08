@@ -1,0 +1,50 @@
+title: Zwei Checkboxen, zwei Buttons
+question: |
+  Erstelle zwei Checkboxen und zwei Buttons.
+
+  Sorge dafür, dass der erste Button nur dann klickbar ist,
+  wenn mindestens einer der beiden Checkboxen einen Haken hat.
+
+  Sorge weiter dafür, dass der zweite Button nur dann klickbar ist,
+  wenn beide Checkboxen einen Haken haben.
+solution: |
+  **WinForms (VS 2022)**
+
+  _Benennung im Designer_  
+  Setze im Eigenschaftenfenster die Namen:
+  - `ChkLinks`, `ChkRechts` (CheckBox)
+  - `CmdErster`, `CmdZweiter` (Button)
+
+  ```csharp
+  namespace DeineApp
+  {
+      public partial class Form1 : Form
+      {
+          public Form1()
+          {
+              InitializeComponent();
+          }
+
+          private void ChkLinks_CheckedChanged(object sender, EventArgs e)
+          {
+              CmdErster.Enabled = ChkLinks.Checked || ChkRechts.Checked;
+              CmdZweiter.Enabled = ChkLinks.Checked && ChkRechts.Checked;
+          }
+
+          private void ChkRechts_CheckedChanged(object sender, EventArgs e)
+          {
+              CmdErster.Enabled = ChkLinks.Checked || ChkRechts.Checked;
+              CmdZweiter.Enabled = ChkLinks.Checked && ChkRechts.Checked;
+          }
+
+          private void CmdErster_Click(object sender, EventArgs e)
+          {
+              MessageBox.Show("Erster Button geklickt.");
+          }
+
+          private void CmdZweiter_Click(object sender, EventArgs e)
+          {
+              MessageBox.Show("Zweiter Button geklickt.");
+          }
+      }
+  }

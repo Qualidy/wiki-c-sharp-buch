@@ -14,7 +14,8 @@ Hier finden sie Ergänzungen und Übungsaufgaben zum Buch
 
 <div class="grid cards fancy" markdown>
 <!-- - [:material-cursor-pointer: **1 Einführung**](content/1.md) -->
-- [:material-language-csharp: **2 Grundlagen**](content/2.md)
+- [:material-language-csharp: **2.4 Verzweigungen mit if und else**](content/2.md)
+- [:material-language-csharp: **2.6 Verzweigungen und Steuerelemente**](content/2_6.md)
 <!-- - [:material-wrench: **3 Fehlerbehandlung**](content/3.md) -->
 <!-- - [:material-language-csharp: **4 Erweiterte Grundlagen**](content/4.md) -->
 <!-- - [:material-language-csharp: **5 Objektorientierte Programmierung**](content/5.md) -->

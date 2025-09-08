@@ -3,7 +3,8 @@ site_name: Ergänzungen zum C# Buch
 nav:
   - Übersicht: index.md
   # - 1 Einführung: content/1.md
-  - 2 Grundlagen: content/2.md
+  - 2.4 Verzweigungen mit if und else: content/2.md
+  - 2.6 Verzweigungen und Steuerelemente: content/2_6.md
   # - 3 Fehlerbehandlung: content/3.md
   # - 4 Erweiterte Grundlagen: content/4.md
   # - 5 Objektorientierte Programmierung: content/5.md
