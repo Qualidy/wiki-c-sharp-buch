@@ -1,10 +1,33 @@
 title: for – Summe 1..n
 question: |
-  Lies `n` (NumericUpDown `NumN`) und berechne die Summe 1+…+n mit `for`. Gib Ergebnis aus.
+  Nutze ein NumericUpDown, um eine Zahl `n` auszulesen und berechne die Summe $1 + \cdots + n$ mit `for`. 
+  Gib Ergebnis in einem Label aus.
+tip: | 
+  **Rechenbeispiele:**
+
+  $1+2+3+ \cdots +10=55$
+
+  $1+2+3+ \cdots +100=5050$
+  
+  $1+2+3+ \cdots +300=45150$
+  
+  $1+2+3+ \cdots +1000=500500$
+
+  **Vorgehen:**
+
+  Erstelle eine Variable `sum = 0;`, in der die einzelnen Summanden addiert werden.
 solution: |
   ```csharp
   int n = (int)NumN.Value;
+  
   int sum = 0;
-  for (int i = 1; i <= n; i++) sum += i;
+
+  for (int i = 1; i <= n; i++)
+  {
+      sum = sum + i;
+  }
+  
   LblAnzeige.Text = $"Summe 1..{n} = {sum}";
   ```
+
+  Man kann auch statt `sum = sum + i;` auch kürzer `sum += i;` schreiben.

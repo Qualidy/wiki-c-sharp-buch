@@ -1,9 +1,16 @@
 title: while – Ziffern zählen
 question: |
-  Zähle die Dezimalstellen einer positiven Ganzzahl `z` durch wiederholtes Teilen durch 10.
+  Zähle die Dezimalstellen einer positiven Ganzzahl `z` durch wiederholtes Teilen durch 10. Nutze dazu `do-while`.
+tip: |
+  1. Lese die Zahl aus einem NumericUpDown aus.
+  2. Lege eine Variable `count = 0` an, in der du mitzählst, wie viele Stellen die Zahl hat.
+  3. Beginne die Schleife, indem du `count` um $1$ erhöhst, denn mindestens eine Stelle hat die Zahl ja auf jeden Fall.
+  4. Dividiere die Zahl durch $10$. Dadurch verliert sie eine Stelle links vom Komma.
+  5. Prüfe, ob die die Zahl noch größer als $0$ ist. Wenn ja, springe zu Schritt 3 zurück.
+  6. Wenn die Zahl kleiner als $0$ ist, dann haben wir die Anzahl der Stellen in `count` gezählt und können dies auf einem Label ausgeben.
 solution: |
   ```csharp
-  int z = Math.Abs((int)NumZ.Value);
+  int z = (int)NumZ.Value;
   int count = 0;
   do
   {

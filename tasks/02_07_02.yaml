@@ -1,15 +1,75 @@
-title: for – Fakultät n!
+title: for – Produkt 1..n
 question: |
-  Lies `n` (klein halten, z. B. ≤ 10) und berechne `n!` mit `for`. Gib zusätzlich den Rechenweg aus.
+  Nutze ein NumericUpDown, um eine Zahl `n` auszulesen und berechne das Produkt $1 \cdot 2 \cdot \cdots \cdot n$ mit `for`. 
+
+  Gib Ergebnis in einem Label aus.
+
+  Diese Produkte sind in der Stochastik sehr wichtig und es wird $n!$ für $1 \cdot 2 \cdot \cdots \cdot n$ 
+  geschrieben. $n!$ liest man als "$n$ Fakultät".
+
+  Wenn `n` zu groß wird, dann wird $n!$ nicht mehr korrekt berechnet. Bei welchen `n` passiert das zum ersten mal und warum?
+  Wie hängt das mit dem gewählten Datentypen zusammen?
+
+tip: | 
+  **Rechenbeispiele:**
+
+  $1! = 1$
+
+  $2! = 1 \cdot 2 = 2$
+  
+  $3! = 1 \cdot 2 \cdot 3 = 6$
+  
+  $4! = 1 \cdot 2 \cdot 3 \cdot 4 = 24$
+  
+  $5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5= 120$
+  
+  $10! = 1 \cdot 2 \cdot 3 \cdot  \cdots \cdot 10=3628800$
+
+  $20! = 1 \cdot 2 \cdot 3 \cdot  \cdots \cdot 20=2432902008176640000$
+
+  **Vorgehen:**
+
+  Erstelle eine Variable `prod = 1;`, in der die einzelnen Summanden addiert werden.
 solution: |
   ```csharp
   int n = (int)NumN.Value;
-  long prod = 1;
-  string weg = "";
+  
+  int prod = 1;
+
   for (int i = 1; i <= n; i++)
   {
-      prod *= i;
-      weg += (i == 1 ? "1" : $"×{i}");
+      prod = prod * i;
   }
-  LblAnzeige.Text = $"{weg} = {prod}";
+  
+  LblAnzeige.Text = $"{n}! = {prod}";
+  ```
+
+  Man kann auch statt `prod = prod * i;` auch kürzer `prod *= i;` schreiben.
+
+  **Ab wann wird's falsch?**
+
+  `int` (32 Bit, MaxValue 2_147_483_647): korrekt bis 12!, bei 13! Überlauf.
+
+  `long` (64 Bit, MaxValue 9_223_372_036_854_775_807): korrekt bis 20!, bei 21! Überlauf.
+
+  `decimal` (128 Bit, ≈ 7.9 × 10^28): exakt bis 27!, 28! ist zu groß.
+
+  `double` (Gleitkomma): numerischer Überlauf erst ab 171!, aber exakte Ganzzahlgenauigkeit geht bereits ab 19! verloren (weil double ganze Zahlen nur bis 2^53 ≈ 9e15 exakt darstellen kann).
+
+  **Warum passiert das?**
+
+  Die Fakultät wächst extrem schnell. Jeder Datentyp hat einen Maximalwert. Wird dieser überschritten, kommt es zum Überlauf.
+
+  Alternativ lässt sich die Klasse `BigInteger` verwenden:
+
+  ```csharp
+  using System.Numerics;
+
+  int n = (int)NumN.Value;
+  BigInteger prod = BigInteger.One;
+
+  for (int i = 1; i <= n; i++)
+      prod *= i;
+
+  LblAnzeige.Text = $"{n}! = {prod}";
   ```
