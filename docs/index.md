@@ -17,6 +17,7 @@ Hier finden sie Ergänzungen und Übungsaufgaben zum Buch
 - [:material-call-split: **2.4 Verzweigungen mit if und else**](content/2.md)
 - [:material-checkbox-multiple-outline: **2.6 Verzweigungen und Steuerelemente**](content/2_6.md)
 - [:material-repeat: **2.7 Schleifen**](content/2_7.md)
+- [ :material-function-variant: 4.5 Methoden](content/4_5.md)
 <!-- - [:material-wrench: **3 Fehlerbehandlung**](content/3.md) -->
 <!-- - [:material-language-csharp: **4 Erweiterte Grundlagen**](content/4.md) -->
 <!-- - [:material-language-csharp: **5 Objektorientierte Programmierung**](content/5.md) -->

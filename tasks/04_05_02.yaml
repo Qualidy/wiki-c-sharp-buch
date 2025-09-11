@@ -1,0 +1,34 @@
+title: Immer mehr x...
+question: |
+  Erstelle zwei Buttons und ein Label.
+
+  Immer wenn auf einer der Buttons geklickt wird, soll auf dem Label ein weiters `x` 
+  erscheinen.
+
+  Implementiere das, indem beide Buttons eine Funktion `add_letter_x` verwenden.
+solution: |
+
+  Erwartete Steuerelemente (Beispielnamen):
+  
+  - `CmdA`, `CmdB` (Buttons)
+  - `LblText` (Label)
+
+  ```csharp
+  // Gemeinsame Funktion, die ein "x" anhängt
+  private void add_letter_x()
+  {
+      LblText.Text += "x";
+  }
+
+  // Beide Buttons rufen dieselbe Funktion auf
+  private void CmdA_Click(object sender, EventArgs e)
+  {
+      add_letter_x();
+  }
+
+  private void CmdB_Click(object sender, EventArgs e)
+  {
+      add_letter_x();
+  }
+  ```
+

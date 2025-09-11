@@ -1,0 +1,42 @@
+title: Mehrwertsteuer berechnen
+question: |
+  Erstellen Sie eine Form mit einem Eingabefeld für Zahlen. In dieses soll ein 
+  Nettobetrag eingetragen werden.
+
+  Erstellen sie daneben 3 Radiobuttons mit (19%, 7%, 0%), der den Steuersatz der
+  Mehrwertsteuer angibt.
+
+  Erstellen Sie zwei Labels. Im ersten Label soll die Mehrwertsteuer berechnet
+  und ausgegeben werden und in der zweiten die soll der Bruttobetrag angezeigt werden.
+
+  Erstelle eine Funktion, die die Steuerlast berechnet.
+
+solution: |
+  Erwartete Steuerelemente (Beispielnamen):
+  - `NumNetto` (NumericUpDown), `Rb19`, `Rb7`, `Rb0` (RadioButtons),
+  - `LblMwst`, `LblBrutto` (Labels)
+
+  ```csharp
+  private decimal Steuer()
+  {
+      decimal netto = NumNetto.Value; // Eingabefeld (NumericUpDown)
+
+      decimal satz;
+      if (Rb19.Checked)
+          satz = 0.19m;
+      else if (Rb7.Checked)
+          satz = 0.07m;
+      else
+          satz = 0.00m; // 0%
+
+      return netto * satz;
+  }
+
+  // Stelle ein, dass Radiobuttons und NumericUpDown diese Funktion verwenden.
+  private labelAktualisieren(object sender, EventArgs e){
+      LblMwst.Text   = $"MwSt:   {Steuer()} €";
+      LblBrutto.Text = $"Brutto: {netto + Steuer()} €";
+  }
+  ```
+
+

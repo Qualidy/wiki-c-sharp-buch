@@ -1,0 +1,51 @@
+title: x und y und beliebig
+question: |
+  Erstelle zwei Buttons und ein Label.
+
+  Immer wenn auf einer der Buttons geklickt wird, soll auf dem Label ein weiters `x` 
+  erscheinen.
+
+  Implementiere das, indem beide Buttons eine Funktion `add_letter(string text)` verwenden.
+
+  **🚀Bonus:** Füge einen wetieren Button und eine Textbox ein. Wenn der dritte Button gedrückt wird,
+  so soll der Text aus der Textbox dem Label hinzugefügt werden.
+solution: |
+  Erwartete Steuerelemente (Beispielnamen):
+  
+  - `CmdA`, `CmdB` (Buttons)
+  - `LblText` (Label)
+
+  ```csharp
+  // Gemeinsame Funktion, die ein "x" anhängt
+  private void add_letter(string text)
+  {
+      LblText.Text += text;
+  }
+
+  // Beide Buttons rufen dieselbe Funktion auf
+  private void CmdA_Click(object sender, EventArgs e)
+  {
+      add_letter("x");
+  }
+
+  private void CmdB_Click(object sender, EventArgs e)
+  {
+      add_letter_x("y");
+  }
+  ```
+
+  **🚀Bonus**
+
+  Erwartete Steuerelemente (Beispielnamen):
+  
+  - `CmdC` (Button)
+  - `TxtEingabe` (Textbox)
+
+
+  ```csharp
+  private void CmdC_Click(object sender, EventArgs e)
+  {
+      add_letter_x(TxtEingabe.Text);
+  }
+  ```
+

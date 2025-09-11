@@ -1,0 +1,116 @@
+title: Der Countdown laeuft
+question: |
+  Erstelle drei Buttons mit den Texten "30", "10", "3" und ein Label.
+
+  Wenn auf den Button geklickt wird, soll man auf dem Label einen Countdown sehen.
+  Beim Button "30" zaehlt er von 30 bis 0 herunter, beim "10" von 10 bis 0 usw.
+  
+  Nutze einen Timer, um den Countdown darzustellen.
+
+  Ueberlege, an welcher Stelle ein Timer sinnvoll eingesetzt werden kann.
+
+  **🚀Bonus**
+
+  * Wie laesst sich einstellen, dass die Buttons nicht geklickt werden koennen, wenn der Countdown laeuft?
+  * Wie laesst sich ueber RadioButtons die Geschwindigkeit der Countdowns einstellen? (z.B. schnell fuer 100 ms und langsam fuer 1000 ms)
+
+solution: |
+  Erwartete Steuerelemente (Beispielnamen):
+
+  - `Cmd30`, `Cmd10`, `Cmd3` (Buttons)
+  - `LblCountdown` (Label)
+  - `TmrCountdown` (Timer)
+
+  Grundloesung (einfach)
+
+  ```csharp
+  // Einfache Loesung: 1 Timer, 1 Zaehler
+  private int remaining = 0;
+
+  // Kleine Hilfsfunktion: Anzeige aktualisieren
+  private void UpdateCountdownLabel()
+  {
+      LblCountdown.Text = $"{remaining}";
+  }
+
+  private void StartCountdown(int seconds)
+  {
+      remaining = seconds;
+      UpdateCountdownLabel();
+
+      TmrCountdown.Interval = 1000; // 1 Sekunde
+      TmrCountdown.Start();
+  }
+
+  private void TmrCountdown_Tick(object sender, EventArgs e)
+  {
+      remaining--;
+      UpdateCountdownLabel();
+
+      if (remaining <= 0)
+      {
+          TmrCountdown.Stop();
+      }
+  }
+
+  // Button-Click-Handler
+  private void Cmd30_Click(object sender, EventArgs e) => StartCountdown(30);
+  private void Cmd10_Click(object sender, EventArgs e) => StartCountdown(10);
+  private void Cmd3_Click(object sender, EventArgs e)  => StartCountdown(3);
+  ```
+
+  Bonus: Buttons sperren und Geschwindigkeit waehlen
+
+  Zusaetzliche Steuerelemente (Beispielnamen):
+
+  - `RbSchnell`, `RbLangsam` (RadioButtons)
+
+  ```csharp
+  // Buttons waehrend des Countdowns sperren
+  private void SetButtonsEnabled(bool enabled)
+  {
+      Cmd30.Enabled = enabled;
+      Cmd10.Enabled = enabled;
+      Cmd3.Enabled  = enabled;
+  }
+
+  // Geschwindigkeit vor dem Start setzen
+  private void SetSpeed()
+  {
+      if (RbSchnell.Checked)
+          TmrCountdown.Interval = 100;   // schnell
+      else if (RbLangsam.Checked)
+          TmrCountdown.Interval = 1000;  // langsam
+      else
+          TmrCountdown.Interval = 500;   // Standard
+  }
+
+  // Kleine Hilfsfunktion: Anzeige aktualisieren
+  private void UpdateCountdownLabel()
+  {
+      LblCountdown.Text = $"{remaining}";
+  }
+
+  // Angepasster Start mit Bonus (ersetzt die einfache StartCountdown-Methode)
+  private void StartCountdown(int seconds)
+  {
+      remaining = seconds;
+      UpdateCountdownLabel();
+
+      SetSpeed();           // Geschwindigkeit waehlen
+      SetButtonsEnabled(false);
+      TmrCountdown.Start();
+  }
+
+  private void TmrCountdown_Tick(object sender, EventArgs e)
+  {
+      remaining--;
+      UpdateCountdownLabel();
+
+      if (remaining <= 0)
+      {
+          TmrCountdown.Stop();
+          SetButtonsEnabled(true);
+      }
+  }
+  ```
