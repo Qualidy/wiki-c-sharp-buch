@@ -54,9 +54,20 @@ solution: |
   }
 
   // Button-Click-Handler
-  private void Cmd30_Click(object sender, EventArgs e) => StartCountdown(30);
-  private void Cmd10_Click(object sender, EventArgs e) => StartCountdown(10);
-  private void Cmd3_Click(object sender, EventArgs e)  => StartCountdown(3);
+  private void Cmd30_Click(object sender, EventArgs e)
+  {
+      StartCountdown(30);
+  }
+
+  private void Cmd10_Click(object sender, EventArgs e)
+  {
+      StartCountdown(10);
+  }
+
+  private void Cmd3_Click(object sender, EventArgs e)
+  {
+      StartCountdown(3);
+  }
   ```
 
   Bonus: Buttons sperren und Geschwindigkeit waehlen

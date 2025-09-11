@@ -1,0 +1,46 @@
+title: Links oder rechts groesser?
+question: |
+  Erstelle zwei NumericUpDowns (`NumLinks`, `NumRechts`) und ein Label (`LblVergleich`).
+  Das Label soll anzeigen, ob der linke oder rechte Wert groesser ist oder ob beide gleich gross sind.
+
+  Lagere die Beschriftung in eine Methode `UpdateVergleich()` aus und rufe
+  diese in den `ValueChanged`-Handlern beider NumericUpDowns auf.
+
+solution: |
+  Erwartete Steuerelemente (Beispielnamen):
+
+  - `NumLinks`, `NumRechts` (NumericUpDown)
+  - `LblVergleich` (Label)
+
+  ```csharp
+  // Aktualisiert die Anzeige im Label basierend auf den beiden Werten
+  private void UpdateVergleich()
+  {
+      decimal links = NumLinks.Value;
+      decimal rechts = NumRechts.Value;
+
+      if (links > rechts)
+          LblVergleich.Text = "links groesser";
+      else if (rechts > links)
+          LblVergleich.Text = "rechts groesser";
+      else
+          LblVergleich.Text = "gleich gross";
+  }
+
+  // Beide NumericUpDowns rufen dieselbe Methode auf
+  private void NumLinks_ValueChanged(object sender, EventArgs e)
+  {
+      UpdateVergleich();
+  }
+
+  private void NumRechts_ValueChanged(object sender, EventArgs e)
+  {
+      UpdateVergleich();
+  }
+
+  // Optional: initial setzen (z.B. im Form-Load)
+  private void Form1_Load(object sender, EventArgs e)
+  {
+      UpdateVergleich();
+  }
+  ```
