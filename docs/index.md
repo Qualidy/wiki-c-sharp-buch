@@ -28,9 +28,12 @@ Hier finden sie Ergänzungen und Übungsaufgaben zum Buch
 </div>
 
 </div>
-
+<div markdown>
 <a href="https://www.rheinwerk-verlag.de/einstieg-in-c-sharp-mit-visual-studio/?srsltid=AfmBOorY3PU_z9rlIXpotThlPFg9QL1k7HPnit9kBbW1_ycXkUyo_lNr" target="_blank" rel="noopener noreferrer">
   <img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9783836288354_267.png" alt="Buchcover: Einstieg in C# mit Visual Studio 2022">
 </a>
 
+[ :fontawesome-solid-external-link: LZK](https://forms.office.com/e/r0ik8qzfsh){ .md-button .md-button--primary }
+
+</div>
 </div>
