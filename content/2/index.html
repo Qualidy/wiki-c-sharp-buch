@@ -1,0 +1,1478 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../2_6/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>2.4 Verzweigungen mit if und else - Ergänzungen zum C# Buch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-verzweigungen-mit-if-und-else" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ergänzungen zum C# Buch" class="md-header__button md-logo" aria-label="Ergänzungen zum C# Buch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ergänzungen zum C# Buch
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.4 Verzweigungen mit if und else
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ergänzungen zum C# Buch" class="md-nav__button md-logo" aria-label="Ergänzungen zum C# Buch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ergänzungen zum C# Buch
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 Verzweigungen mit if und else
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 Verzweigungen und Steuerelemente
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7 Schleifen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8 Schleifen und Steuerelemente
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5 Methoden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- # 2 Grundlagen -->
+<!-- 
+## 2.1 Variablen und Datentypen
+
+???+ question "Visitenkarte mit Variablen"
+
+    Lege Variablen für eine kleine Visitenkarte an und gib sie mehrzeilig aus.
+
+    - `string name`
+    - `int alter`
+    - `double groesseMeter`
+    - `bool magCSharp`
+
+    Erzeuge eine mehrzeilige Zeichenkette mit String-Interpolation (z. B. via `\n`) und gib sie in der Oberfläche aus (z. B. Label oder MessageBox).
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Alex&quot;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">alter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">28</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">groesseMeter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.82</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">magCSharp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;Name: {name}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Alter: {alter}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Größe (m): {groesseMeter}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Mag C#: {magCSharp}&quot;</span><span class="p">;</span>
+
+<span class="c1">// WinForms-Beispiele:</span>
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Visitenkarte&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Passende Datentypen wählen und anzeigen"
+
+    Lege sinnvolle Variablen + Werte an und gib sie aus:
+
+    - Kontostand (Geldbetrag)
+    - Artikelanzahl (ganzzahlig)
+    - Temperatur in °C (mit Nachkommastellen)
+    - Ampelzustand (ein Buchstabe z. B. R/G/Y)
+
+    Formatiere die Ausgabe ordentlich (mehrzeilig).
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">decimal</span><span class="w"> </span><span class="n">kontostand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1234.56m</span><span class="p">;</span><span class="w"> </span><span class="c1">// Geld: decimal</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">artikelanzahl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">         </span><span class="c1">// Stückzahl: int</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">temperaturC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.5</span><span class="p">;</span><span class="w">     </span><span class="c1">// Messwert mit Nachkommastellen: double</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">ampel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">;</span><span class="w">              </span><span class="c1">// ein Zeichen: char</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;Kontostand: {kontostand} €\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Artikelanzahl: {artikelanzahl}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Temperatur: {temperaturC} °C\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Ampel: {ampel}&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Datentypen&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Gültigkeitsbereich von Variablen (Feld vs. lokal)"
+
+    Zeige den Unterschied zwischen einem **Feld** (Klassenebene) und einer **lokalen** Variablen (Methodenebene):
+
+    - Lege ein **Feld** `globalZaehler` in der Form-Klasse an.
+    - In einem Button-Klick: Erhöhe `globalZaehler` und außerdem eine **lokale** Variable `lokalerZaehler`.
+    - Gib beide Werte aus.
+    - Erläutere im Kommentar, warum `lokalerZaehler` außerhalb der Methode nicht sichtbar ist.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="c1">// In Form1.cs (innerhalb der Klasse Form1, aber außerhalb der Methoden):</span>
+<span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">globalZaehler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// In der Klick-Methode (z. B. eines Buttons):</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BtnKlick</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">lokalerZaehler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// nur in dieser Methode sichtbar</span>
+
+<span class="w">    </span><span class="n">globalZaehler</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">lokalerZaehler</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;global: {globalZaehler}, lokal: {lokalerZaehler}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// MessageBox.Show($&quot;global: {globalZaehler}, lokal: {lokalerZaehler}&quot;);</span>
+<span class="p">}</span>
+
+<span class="c1">// Hinweis:</span>
+<span class="c1">// &#39;lokalerZaehler&#39; existiert nur innerhalb von BtnKlick.</span>
+<span class="c1">// Diese Zeile außerhalb der Methode wäre ein Fehler:</span>
+<span class="c1">// LblAnzeige.Text = lokalerZaehler.ToString();</span>
+</code></pre></div>
+
+???+ question "Konstante und Preisberechnung (Brutto aus Netto)"
+
+    Lege eine **Konstante** für den Steuersatz an und berechne aus einem Netto-Wert den Brutto-Preis.
+
+    Vorgaben:
+    - `const decimal STEUERSATZ = 0.19m`
+    - Beispiel: `netto = 59.90m`
+    - Ausgabe: Netto, Steuerbetrag, Brutto — jeweils auf 2 Nachkommastellen.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">STEUERSATZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.19m</span><span class="p">;</span>
+<span class="kt">decimal</span><span class="w"> </span><span class="n">netto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">59.90m</span><span class="p">;</span>
+
+<span class="kt">decimal</span><span class="w"> </span><span class="n">steuer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">netto</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">STEUERSATZ</span><span class="p">;</span>
+<span class="kt">decimal</span><span class="w"> </span><span class="n">brutto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">netto</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">steuer</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;Netto:  {netto:F2} €\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Steuer: {steuer:F2} €\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Brutto: {brutto:F2} €&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Preisberechnung&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Typkonvertierung (implizit/explicit)"
+
+    Demonstriere einfache Typkonvertierungen:
+
+    - `int` → `double` (implizit)
+    - `double` → `int` (explizit per Cast)
+
+    Gib beide Ergebnisse aus und notiere im Kommentar, was bei der Umwandlung `double → int` passiert.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">anzahl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">alsDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">anzahl</span><span class="p">;</span><span class="w"> </span><span class="c1">// implizit möglich (kein Informationsverlust)</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="n">preisProStueck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.75</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">ganzzahlig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">preisProStueck</span><span class="p">;</span><span class="w"> </span><span class="c1">// explizit: Nachkommastellen werden abgeschnitten</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;anzahl (int): {anzahl}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;alsDouble (double): {alsDouble}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;preisProStueck (double): {preisProStueck}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;ganzzahlig (int, gecastet): {ganzzahlig}&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Typkonvertierung&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+
+## 2.2 Operatoren
+
+???+ question "Operatorrangfolge sichtbar machen"
+
+    Berechne die folgenden Ausdrücke und vergleiche die Ergebnisse.
+
+    1) Ohne Klammern: `5 + 3 * 4 - 6 / 2`
+    2) Mit Klammern (Variante A): `(5 + 3) * 4 - 6 / 2`
+    3) Mit Klammern (Variante B): `5 + (3 * 4 - 6) / 2`
+
+    Erkläre in kurzen Kommentaren, welche Operatoren zuerst ausgewertet werden.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">expr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">           </span><span class="c1">// * und / vor + und -</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">exprA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">         </span><span class="c1">// Klammern zuerst</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">exprB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">         </span><span class="c1">// Innenklammer zuerst, dann /, dann +</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;ohne Klammern: {expr1}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Variante A   : {exprA}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Variante B   : {exprB}&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Operatorrangfolge&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Vergleichsoperatoren testen"
+
+    Lege Variablen an und gib die Ergebnisse der Vergleiche aus:
+
+    - `int a = 5`, `int b = 10`, `double x = 3.5`
+    - Prüfe: `a < b`, `a * 3 == b`, `x >= 3.5`, `"Maier" == "Mayer"`
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.5</span><span class="p">;</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">3.5</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">r4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Maier&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Mayer&quot;</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;a &lt; b            : {r1}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;a * 3 == b       : {r2}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;x &gt;= 3.5         : {r3}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;\&quot;Maier\&quot;==\&quot;Mayer\&quot;: {r4}&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Vergleichsoperatoren&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Logische Operatoren (AND, OR, XOR, NOT)"
+
+    Verwende die Variablen `a = 5`, `b = 10` und prüfe:
+
+    - `a > 0 && b != 10`
+    - `a > 0 || b != 10`
+    - `(a > 0) ^ (b != 10)`  (XOR)
+    - `!(a > 0)`
+
+    Notiere in 1–2 Kommentaren die Unterschiede zwischen `&&`, `||` und `^`.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">andRes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">     </span><span class="c1">// true AND false -&gt; false</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">orRes</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">     </span><span class="c1">// true OR false  -&gt; true</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">xorRes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// true XOR false -&gt; true (genau ein Operand wahr)</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">notRes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">             </span><span class="c1">// NOT true       -&gt; false</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;AND (&amp;&amp;): {andRes}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;OR  (||): {orRes}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;XOR  (^): {xorRes}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;NOT  (!): {notRes}&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Logische Operatoren&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Zusammengesetzte Zuweisungen"
+
+    Starte mit `int n = 10` und führe nacheinander aus:
+
+    - `n += 5`
+    - `n -= 3`
+    - `n *= 2`
+    - `n /= 4`
+
+    Gib nach **jedem** Schritt den aktuellen Wert aus.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Start: n = {n}\n&quot;</span><span class="p">;</span>
+<span class="n">n</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="n">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">$&quot;nach n += 5 : {n}\n&quot;</span><span class="p">;</span>
+<span class="n">n</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="n">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">$&quot;nach n -= 3 : {n}\n&quot;</span><span class="p">;</span>
+<span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="n">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">$&quot;nach n *= 2 : {n}\n&quot;</span><span class="p">;</span>
+<span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">  </span><span class="n">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">$&quot;nach n /= 4 : {n}\n&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Zuweisungsoperatoren&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+???+ question "Klammern bei booleschen Ausdrücken"
+
+    Lege boolesche Ausdrücke A, B, C fest, z. B.:
+
+    - `A = (5 < 0)`
+    - `B = (10 % 2 == 0)`
+    - `C = (3.5 >= 3)`
+
+    Vergleiche die Auswertung von
+    - `!A || B && C`
+    - `(!A || B) && C`
+
+    Erkläre in einem Kommentar, warum die Ergebnisse unterschiedlich sein können.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">          </span><span class="c1">// false</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">    </span><span class="c1">// true</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">3.5</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">       </span><span class="c1">// true</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">expr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">A</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">C</span><span class="p">;</span><span class="w">       </span><span class="c1">// &amp;&amp; vor ||</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">expr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">A</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">C</span><span class="p">;</span><span class="w">     </span><span class="c1">// Klammern ändern die Rangfolge</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">$&quot;!A || B &amp;&amp; C     : {expr1}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;(!A || B) &amp;&amp; C   : {expr2}\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s">$&quot;Hinweis: &#39;&amp;&amp;&#39; hat höhere Priorität als &#39;||&#39;. Klammern können das ändern.&quot;</span><span class="p">;</span>
+
+<span class="c1">// LblAnzeige.Text = text;</span>
+<span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Boolesche Ausdrücke &amp; Klammern&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+
+## 2.3 Einfache Steuerelemente
+
+???+ question "Panel bewegen (Buttons)"
+
+    Bewege ein Panel mit vier Buttons um jeweils 10 Pixel:
+
+    - `CmdUp`, `CmdDown`, `CmdLeft`, `CmdRight`
+    - Ein Label `LblAnzeige` zeigt Position: `X: <Left>  Y: <Top>`
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="c1">// Ereignisse der vier Buttons (WinForms)</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdUp_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Top</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;X: {PnlBox.Left}  Y: {PnlBox.Top}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdDown_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Top</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;X: {PnlBox.Left}  Y: {PnlBox.Top}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdLeft_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Left</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;X: {PnlBox.Left}  Y: {PnlBox.Top}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdRight_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Left</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;X: {PnlBox.Left}  Y: {PnlBox.Top}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "Timer-Automove (Wrap-around ohne if)"
+
+    Lasse ein Panel automatisch nach rechts laufen. Am rechten Rand soll es links wieder erscheinen (Wrap-around), ganz ohne `if`.
+
+    - `Timer` (z. B. Intervall 30 ms), `CmdStart`, `CmdStop`, Panel `PnlBox`, Label `LblAnzeige`.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="c1">// Start/Stop</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdStart_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Tmr</span><span class="p">.</span><span class="n">Interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Tmr</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdStop_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Tmr</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Tick: Wrap-around per Modulo</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Tmr_Tick</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">ClientSize</span><span class="p">.</span><span class="n">Width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Width</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PnlBox</span><span class="p">.</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">maxX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// ohne if</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;X: {PnlBox.Left}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "TextBox-Livespiegel + Länge"
+
+    Spiegele den Inhalt einer TextBox live in ein Label und zeige zusätzlich die Länge des Textes an.
+
+    - Steuerelemente: `TxtEingabe`, `LblAnzeige` (Ereignis: `TextChanged`).
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TxtEingabe_TextChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TxtEingabe</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">$&quot;Länge: {t.Length}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "NumericUpDown – Formatierte Anzeige"
+
+    Verwende ein `NumericUpDown` (`NumWert`) mit:
+
+    - `DecimalPlaces = 1`, `Increment = 0.1`, `Minimum = -5.0`, `Maximum = 5.0`
+    - Zeige den Wert formatiert im Label (`F1`) und im Fenstertitel.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NumWert_ValueChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NumWert</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;F1&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Wert: {NumWert.Value:F1}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "Timer – Blinken per Visible-Toggle"
+
+    Lasse ein Label blinken, indem du in jedem Tick `Visible` umschaltest (kein `if` nötig).
+    - `LblBlink`, `TmrBlink`, Buttons `CmdStart`, `CmdStop`
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdStart_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">TmrBlink</span><span class="p">.</span><span class="n">Interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TmrBlink</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdStop_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">TmrBlink</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblBlink</span><span class="p">.</span><span class="n">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// neutraler Zustand</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TmrBlink_Tick</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LblBlink</span><span class="p">.</span><span class="n">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">LblBlink</span><span class="p">.</span><span class="n">Visible</span><span class="p">;</span><span class="w"> </span><span class="c1">// Umschalten ohne if</span>
+<span class="p">}</span>
+</code></pre></div>
+
+-->
+
+<h1 id="24-verzweigungen-mit-if-und-else">2.4 Verzweigungen mit if und else</h1>
+<details class="question" open="open">
+<summary>if/else – Temperaturklassifikation</summary>
+<p>Lies eine Temperatur aus einem NumericUpDown (z. B. <code>NumTemp</code>) und gib im Label aus:</p>
+<ul>
+<li><code>&lt; 0</code> → „Frost“</li>
+<li><code>== 0</code> → „Gefrierpunkt“</li>
+<li><code>&gt; 0</code> → „Plusgrade“</li>
+</ul>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="kt">decimal</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NumTemp</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Frost&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Gefrierpunkt&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Plusgrade&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>if/else – Notentext (1–6)</summary>
+<p>Lies eine Note <code>1</code>–<code>6</code> (z. B. <code>NumNote</code>) und gib per <code>if/else if/else</code> den Text aus:</p>
+<ul>
+<li>1 „sehr gut“, 2 „gut“, 3 „befriedigend“, 4 „ausreichend“, 5 „mangelhaft“, 6 „ungenügend“.</li>
+</ul>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumNote</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">note</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sehr gut&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">note</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gut&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">note</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;befriedigend&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">note</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ausreichend&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">note</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mangelhaft&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ungenügend&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>Ternärer Operator – gerade/ungerade</summary>
+<p>Lies eine Ganzzahl (NumericUpDown, z. B. <code>NumZahl</code>, <code>DecimalPlaces=0</code>) und gib „gerade“/„ungerade“ mit <code>?:</code> aus.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Mit hilfe des <code>%</code>-Operators kann man bestimmen, ob eine Zahl gerade oder ungerade ist. Rechachiere wie das geht!</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumZahl</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;gerade&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ungerade&quot;</span><span class="p">;</span>
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+</details>
+</details>
+<!-- ???+ question "if/else – Einlasskontrolle"
+
+    Lies Alter (`NumAlter`) und Ticket (`ChkTicket`). Gib aus:
+
+    - Ab 18 **und** Ticket → „Einlass“
+    - sonst „kein Einlass“
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">alter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumAlter</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkTicket</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alter</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ticket</span><span class="p">)</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Einlass&quot;</span><span class="p">;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;kein Einlass&quot;</span><span class="p">;</span>
+</code></pre></div>
+         -->
+<details class="question" open="open">
+<summary>if/else – Wertebereiche</summary>
+<p>Lies einen Wert −10…+10 (<code>NumWert</code>). Gib aus:</p>
+<ul>
+<li><code>&lt; 0</code> → „negativ“</li>
+<li><code>== 0</code> → „null“</li>
+<li><code>&gt; 0 &amp;&amp; &lt;= 9</code> → „positiv, einstellig“</li>
+<li><code>&gt;= 10</code> → „positiv und mindestens zweistellig“</li>
+</ul>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumWert</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;negativ&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;null&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;positiv, einstellig&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;positiv und mindestens zweistellig&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+</details>
+</details>
+<!-- 
+## 2.5 Verzweigungen mit switch
+
+???+ question "switch – Wochentag zu Werktag/Wochenende"
+
+    Lege `enum Wochentag { Mo, Di, Mi, Do, Fr, Sa, So }` und lies einen Wert (z. B. aus ComboBox).
+    Gib mit `switch` aus: „Werktag“ für Mo–Fr, „Wochenende“ für Sa/So.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="c1">// enum (einmalig auf Klassenebene)</span>
+<span class="k">enum</span><span class="w"> </span><span class="n">Wochentag</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Mo</span><span class="p">,</span><span class="w"> </span><span class="n">Di</span><span class="p">,</span><span class="w"> </span><span class="n">Mi</span><span class="p">,</span><span class="w"> </span><span class="n">Do</span><span class="p">,</span><span class="w"> </span><span class="n">Fr</span><span class="p">,</span><span class="w"> </span><span class="n">Sa</span><span class="p">,</span><span class="w"> </span><span class="n">So</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// Annahme: ausgewählter Wert in &#39;tag&#39;</span>
+<span class="n">Wochentag</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wochentag</span><span class="p">.</span><span class="n">Mo</span><span class="p">;</span><span class="w"> </span><span class="c1">// Beispiel</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Wochentag</span><span class="p">.</span><span class="n">Sa</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">Wochentag</span><span class="p">.</span><span class="n">So</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Wochenende&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Werktag&quot;</span>
+<span class="p">};</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "switch mit Vergleichsmustern (NumericUpDown)"
+
+    Lies einen Double-Wert (NumericUpDown `NumX`). Nutze `switch` mit Vergleichsmustern:
+
+    - `< 0`, `0`, `> 0 and <= 9`, `> 9`
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">NumX</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;negativ&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;null&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;positiv, 0..9&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;positiv, &gt; 9&quot;</span>
+<span class="p">};</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "switch-Ausdruck – Ampelfarbe"
+
+    Lies eine Zahl 1–3 (`NumAmpel`) und mappe per `switch`-Ausdruck auf „rot“, „gelb“, „grün“. Sonst „unbekannt“.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumAmpel</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">farbe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;rot&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;gelb&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;grün&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;unbekannt&quot;</span>
+<span class="p">};</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">farbe</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "switch – or-Muster (Städte)"
+
+    Lies einen Stadtnamen (TextBox `TxtStadt`). Für „Namur“, „Antwerpen“ oder „Lüttich“ gib „Belgien (BE)“ aus; sonst „andere“.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TxtStadt</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Trim</span><span class="p">();</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">land</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;Namur&quot;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="s">&quot;Antwerpen&quot;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="s">&quot;Lüttich&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Belgien (BE)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;andere&quot;</span>
+<span class="p">};</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">land</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "switch – Tupel & when"
+
+    Lies zwei Ganzzahlen (z. B. `NumA`, `NumB`) und verwende einen Tupel-`switch` mit `when`:
+
+    - beide < 10
+    - beide > 9
+    - Spezialfall: `a == b` (per `when`)
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumA</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumB</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">switch</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;gleich&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;beide &lt; 10&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;beide &gt; 9&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;gemischt&quot;</span>
+<span class="p">};</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+
+
+## 2.6 Verzweigungen und Steuerelemente
+
+???+ question "CheckBox aktiviert/deaktiviert Label"
+
+    `ChkAktiv` schaltet ein Label `LblText` aktiv/inaktiv. Bei „inaktiv“ setze den Text auf „(inaktiv)“.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkAktiv_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkAktiv</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblText</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblText</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;bereit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;(inaktiv)&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "RadioButtons richten Text aus"
+
+    Drei RadioButtons (links/zentriert/rechts) ändern `TextAlign` eines Labels `LblText`.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbtLinks_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtLinks</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">TextAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContentAlignment</span><span class="p">.</span><span class="n">MiddleLeft</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbtZentriert_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtZentriert</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">TextAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContentAlignment</span><span class="p">.</span><span class="n">MiddleCenter</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbtRechts_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtRechts</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">TextAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContentAlignment</span><span class="p">.</span><span class="n">MiddleRight</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "Gemeinsamer Handler für Schriftgröße"
+
+    Vier RadioButtons (8/10/12/16 pt) teilen sich **eine** Methode; diese liest `((RadioButton)sender).Text` aus und setzt `LblText.Font`.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbtSize_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sender</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">RadioButton</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;pt&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">).</span><span class="n">Trim</span><span class="p">(),</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">size</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Font</span><span class="p">(</span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">FontFamily</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Style</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "GroupBox – zwei unabhängige Optionen"
+
+    Zwei GroupBoxen: A (Farbe: Rot/Grün/Blau), B (Stil: Fett/Kursiv/Unterstrichen).
+
+    Wähle unabhängig – setze `LblText.ForeColor` und `LblText.Font` entsprechend.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Farbe_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">RadioButton</span><span class="p">)</span><span class="n">sender</span><span class="p">).</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtRot</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w">   </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtGruen</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtBlau</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w">  </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Stil_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">RadioButton</span><span class="p">)</span><span class="n">sender</span><span class="p">).</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="n">FontStyle</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="n">Regular</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtFett</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w">       </span><span class="n">style</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="n">Bold</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtKursiv</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w">     </span><span class="n">style</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="n">Italic</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbtUnterstrichen</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="n">Underline</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Font</span><span class="p">(</span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="p">,</span><span class="w"> </span><span class="n">style</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "TrackBar steuert Schriftgröße"
+
+    TrackBar `TrbSize` (Min 8, Max 24) steuert live die Schriftgröße von `LblText` im `Scroll`-Event.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TrbSize_Scroll</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TrbSize</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Font</span><span class="p">(</span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">FontFamily</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Style</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+## 2.7 Schleifen
+
+???+ question "for – Summe 1..n"
+
+    Nutze ein NumericUpDown, um eine Zahl `n` auszulesen und berechne die Summe $1 + \cdots + n$ mit `for`. 
+    Gib Ergebnis in einem Label aus.
+
+    ??? info "Tipp"
+
+        **Rechenbeispiele:**
+
+        $1+2+3+ \cdots +10=55$
+
+        $1+2+3+ \cdots +100=5050$
+
+        $1+2+3+ \cdots +300=45150$
+
+        $1+2+3+ \cdots +1000=500500$
+
+        **Vorgehen:**
+
+        Erstelle eine Variable `sum = 0;`, in der die einzelnen Summanden addiert werden.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumN</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Summe 1..{n} = {sum}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+        Man kann auch statt `sum = sum + i;` auch kürzer `sum += i;` schreiben.
+
+???+ question "for – Produkt 1..n"
+
+    Nutze ein NumericUpDown, um eine Zahl `n` auszulesen und berechne das Produkt $1 \cdot 2 \cdot \cdots \cdot n$ mit `for`. 
+
+    Gib Ergebnis in einem Label aus.
+
+    Diese Produkte sind in der Stochastik sehr wichtig und es wird $n!$ für $1 \cdot 2 \cdot \cdots \cdot n$ 
+    geschrieben. $n!$ liest man als "$n$ Fakultät".
+
+    Wenn `n` zu groß wird, dann wird $n!$ nicht mehr korrekt berechnet. Bei welchen `n` passiert das zum ersten mal und warum?
+    Wie hängt das mit dem gewählten Datentypen zusammen?
+
+    ??? info "Tipp"
+
+        **Rechenbeispiele:**
+
+        $1! = 1$
+
+        $2! = 1 \cdot 2 = 2$
+
+        $3! = 1 \cdot 2 \cdot 3 = 6$
+
+        $4! = 1 \cdot 2 \cdot 3 \cdot 4 = 24$
+
+        $5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5= 120$
+
+        $10! = 1 \cdot 2 \cdot 3 \cdot  \cdots \cdot 10=3628800$
+
+        $20! = 1 \cdot 2 \cdot 3 \cdot  \cdots \cdot 20=2432902008176640000$
+
+        **Vorgehen:**
+
+        Erstelle eine Variable `prod = 1;`, in der die einzelnen Summanden addiert werden.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumN</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;{n}! = {prod}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+        Man kann auch statt `prod = prod * i;` auch kürzer `prod *= i;` schreiben.
+
+        **Ab wann wird's falsch?**
+
+        `int` (32 Bit, MaxValue 2_147_483_647): korrekt bis 12!, bei 13! Überlauf.
+
+        `long` (64 Bit, MaxValue 9_223_372_036_854_775_807): korrekt bis 20!, bei 21! Überlauf.
+
+        `decimal` (128 Bit, ≈ 7.9 × 10^28): exakt bis 27!, 28! ist zu groß.
+
+        `double` (Gleitkomma): numerischer Überlauf erst ab 171!, aber exakte Ganzzahlgenauigkeit geht bereits ab 19! verloren (weil double ganze Zahlen nur bis 2^53 ≈ 9e15 exakt darstellen kann).
+
+        **Warum passiert das?**
+
+        Die Fakultät wächst extrem schnell. Jeder Datentyp hat einen Maximalwert. Wird dieser überschritten, kommt es zum Überlauf.
+
+        Alternativ lässt sich die Klasse `BigInteger` verwenden:
+
+        <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Numerics</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumN</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="n">BigInteger</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">.</span><span class="n">One</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">prod</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;{n}! = {prod}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "while – Countdown"
+
+    Starte bei `n` und zähle bis 0 herunter. Gib jede Zahl in einer neuen Zeile aus.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumN</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">n</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "while – Ziffern zählen"
+
+    Zähle die Dezimalstellen einer positiven Ganzzahl `z` durch wiederholtes Teilen durch 10. Nutze dazu `do-while`.
+
+    ??? info "Tipp"
+
+        1. Lese die Zahl aus einem NumericUpDown aus.
+        2. Lege eine Variable `count = 0` an, in der du mitzählst, wie viele Stellen die Zahl hat.
+        3. Beginne die Schleife, indem du `count` um $1$ erhöhst, denn mindestens eine Stelle hat die Zahl ja auf jeden Fall.
+        4. Dividiere die Zahl durch $10$. Dadurch verliert sie eine Stelle links vom Komma.
+        5. Prüfe, ob die die Zahl noch größer als $0$ ist. Wenn ja, springe zu Schritt 3 zurück.
+        6. Wenn die Zahl kleiner als $0$ ist, dann haben wir die Anzahl der Stellen in `count` gezählt und können dies auf einem Label ausgeben.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumZ</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Ziffern: {count}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "do…while – Verdoppeln bis Ziel"
+
+    Starte bei `prod = 1` und verdopple (`prod *= 2`), bis `prod >= n` erreicht ist. Gib `prod` und die Anzahl der Verdopplungen aus.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">NumN</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prod</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="n">prod</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">steps</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;prod={prod}, Schritte={steps}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+
+## 2.8 Schleifen mit Steuerelementen
+
+???+ question "ListBox füllen (1..n)"
+
+    Fülle eine `ListBox` (`LstZahlen`) mit den Zahlen 1 bis 10 per `for`.
+    Wähle dann die 7 aus.
+
+    ??? info "Tipp"
+
+        Füge den Code in `Form1_Load(...)` hinzu.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nf">Form1</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">InitializeComponent</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">SelectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "Auswahl anzeigen"
+
+    Bei `SelectedIndexChanged` gib den markierten Eintrag und den Index im Label aus.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LstZahlen_SelectedIndexChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">SelectedIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">SelectedItem</span><span class="p">;</span>
+<span class="w">        </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Wert: {val}, Index: {LstZahlen.SelectedIndex}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+???+ question "Summe aller Einträge (foreach)"
+
+    Bilde die Summe aller `ListBox.Items` (ganzzahlig). Nutze `foreach`.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">Items</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Summe: {sum}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "Summe der markierten Einträge"
+
+    Aktiviere Mehrfachauswahl (`SelectionMode=MultiSimple` oder `MultiExtended`) und summiere **nur** die ausgewählten Einträge.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">LstZahlen</span><span class="p">.</span><span class="n">SelectedItems</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Summe (selektiert): {sum}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+???+ question "ComboBox aus Array + Auswahl"
+
+    Erzeuge ein `string[]` mit fünf Städten und fülle die `ComboBox` (`CmbStadt`). Bei Auswahl: Stadt und Index anzeigen.
+
+    ??? success "Lösung"
+
+        <div class="highlight"><pre><span></span><code><span class="c1">// Befüllen (z. B. im Form_Load)</span>
+<span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">staedte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;Kiel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lübeck&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Flensburg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Neumünster&quot;</span><span class="w"> </span><span class="p">};</span>
+<span class="n">CmbStadt</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="n">CmbStadt</span><span class="p">.</span><span class="n">Items</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">staedte</span><span class="p">);</span>
+
+<span class="c1">// Auswahl-Event</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmbStadt_SelectedIndexChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CmbStadt</span><span class="p">.</span><span class="n">SelectedIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LblAnzeige</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Stadt: {CmbStadt.SelectedItem}, Index: {CmbStadt.SelectedIndex}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Übersicht">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Übersicht
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2_6/" class="md-footer__link md-footer__link--next" aria-label="Next: 2.6 Verzweigungen und Steuerelemente">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2.6 Verzweigungen und Steuerelemente
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1070 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2/">
+      
+      
+        <link rel="next" href="../2_7/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>2.6 Verzweigungen und Steuerelemente - Ergänzungen zum C# Buch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#26-verzweigungen-und-steuerelemente" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Ergänzungen zum C# Buch" class="md-header__button md-logo" aria-label="Ergänzungen zum C# Buch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ergänzungen zum C# Buch
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.6 Verzweigungen und Steuerelemente
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ergänzungen zum C# Buch" class="md-nav__button md-logo" aria-label="Ergänzungen zum C# Buch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ergänzungen zum C# Buch
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 Verzweigungen mit if und else
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2.6 Verzweigungen und Steuerelemente
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 Verzweigungen und Steuerelemente
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#261-steuerelement-checkbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.1 Steuerelement Checkbox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#262-steuerlement-radiobutton" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.2 Steuerlement Radiobutton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#263-gemeinsame-methode-fur-mehrere-ereignisse" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.3 Gemeinsame Methode für mehrere Ereignisse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#264-steuerelement-groupbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.4 Steuerelement GroupBox
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7 Schleifen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8 Schleifen und Steuerelemente
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5 Methoden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="26-verzweigungen-und-steuerelemente">2.6 Verzweigungen und Steuerelemente</h1>
+<h2 id="261-steuerelement-checkbox">2.6.1 Steuerelement Checkbox</h2>
+<details class="question" open="open">
+<summary>Eine Checkbox</summary>
+<p>Erstelle eine Checkbox mit den Text "Zustimmen".
+Erstelle ein Label mit dem schwarzen Text: "Wir benötigen ihre Zustimmung".</p>
+<p>Finde heraus, wie du die Farbe eines Textes ändern kannst.</p>
+<p>Sorge dafür, dass wenn du die Checkbox aktivierst,
+der Text grün wird und lautet "Danke für Ihre Zustimmung!".</p>
+<p>Wenn die Checkbox deaktiviert wird, dann soll
+wieder der ursprüngliche schwarze Text erscheinen.</p>
+<p>Bonus: Speichere die Farben und Texte in Konstanten.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Textfarbe ändern:</p>
+<div class="highlight"><pre><span></span><code><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span><span class="w"> </span><span class="c1">// oder Color.Black</span>
+</code></pre></div>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">DeineApp</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Form1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Form</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Form1</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">InitializeComponent</span><span class="p">();</span>
+
+<span class="w">            </span><span class="c1">// Anfangszustand sicherstellen</span>
+<span class="w">            </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wir benötigen ihre Zustimmung&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Black</span><span class="p">;</span>
+
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkZustimmen_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ChkZustimmen</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Danke für Ihre Zustimmung!&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wir benötigen ihre Zustimmung&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Black</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Lösung mit Bonus:</p>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">DeineApp</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Form1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Form</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Texte als Konstanten</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">TEXT_DEFAULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wir benötigen ihre Zustimmung&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">TEXT_OK</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Danke für Ihre Zustimmung!&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Farben als schreibgeschützte Felder</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">COLOR_DEFAULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Black</span><span class="p">;</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">COLOR_OK</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Form1</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">InitializeComponent</span><span class="p">();</span>
+
+<span class="w">            </span><span class="c1">// Anfangszustand</span>
+<span class="w">            </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT_DEFAULT</span><span class="p">;</span>
+<span class="w">            </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR_DEFAULT</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkZustimmen_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ChkZustimmen</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT_OK</span><span class="p">;</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR_OK</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT_DEFAULT</span><span class="p">;</span>
+<span class="w">                </span><span class="n">LblHinweis</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR_DEFAULT</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>Zwei Checkboxen, zwei Buttons</summary>
+<p>Erstelle zwei Checkboxen und zwei Buttons.</p>
+<p>Sorge dafür, dass der erste Button nur dann klickbar ist,
+wenn mindestens einer der beiden Checkboxen einen Haken hat.</p>
+<p>Sorge weiter dafür, dass der zweite Button nur dann klickbar ist,
+wenn beide Checkboxen einen Haken haben.</p>
+<details class="success">
+<summary>Lösung</summary>
+<p><strong>WinForms (VS 2022)</strong></p>
+<p><em>Benennung im Designer</em><br />
+Setze im Eigenschaftenfenster die Namen:</p>
+<ul>
+<li><code>ChkLinks</code>, <code>ChkRechts</code> (CheckBox)</li>
+<li><code>CmdErster</code>, <code>CmdZweiter</code> (Button)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">DeineApp</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Form1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Form</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Form1</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">InitializeComponent</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkLinks_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">CmdErster</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkLinks</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">ChkRechts</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">            </span><span class="n">CmdZweiter</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkLinks</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ChkRechts</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkRechts_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">CmdErster</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkLinks</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">ChkRechts</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">            </span><span class="n">CmdZweiter</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkLinks</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ChkRechts</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdErster_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Erster Button geklickt.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdZweiter_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Zweiter Button geklickt.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>Versteckter Knopf</summary>
+<p>Erstelle zwei Checkboxen.</p>
+<p>Sorge dafür, dass man zu Beginn nur eine von
+den zwei Boxen nutzen kann.</p>
+<p>Sobald die erste Checkbox aktiviert wurde, kann auch die
+andere Checkbox angeklickt werden.</p>
+<p>Wenn die zweite Checkbox aktiviert wurde, dann
+erscheint ein bisher unsichtbarer Button.
+Wenn auf diesen Button geklickt wird,
+wird das Programm geschlossen.</p>
+<details class="success">
+<summary>Lösung</summary>
+<p><strong>WinForms (VS 2022)</strong></p>
+<p><em>Benennung im Designer</em><br />
+- CheckBox 1: <code>ChkErste</code> (Text z. B. <strong>Erste Option</strong>)<br />
+- CheckBox 2: <code>ChkZweite</code> (Text z. B. <strong>Zweite Option</strong>)<br />
+- Button: <code>CmdBeenden</code> (Text: <strong>Beenden</strong>)</p>
+<p><em>Startzustand (im Designer setzen oder im Code unten):</em><br />
+- <code>ChkZweite.Enabled = false</code><br />
+- <code>CmdBeenden.Visible = false</code></p>
+<p><strong>Form1.cs</strong>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">DeineApp</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Form1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Form</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Form1</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">InitializeComponent</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Sobald die erste Checkbox AKTIV ist, darf die zweite benutzt werden.</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkErste_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ChkZweite</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkErste</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ChkZweite</span><span class="p">.</span><span class="n">Enabled</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Wenn wieder gesperrt, zweite abwählen und Button verstecken</span>
+<span class="w">                </span><span class="n">ChkZweite</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">                </span><span class="n">CmdBeenden</span><span class="p">.</span><span class="n">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Wenn die zweite Checkbox aktiviert wird, erscheint der Button.</span>
+<span class="w">        </span><span class="c1">// (Deaktivieren blendet ihn wieder aus.)</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkZweite_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">CmdBeenden</span><span class="p">.</span><span class="n">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkZweite</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Button schließt die Anwendung.</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CmdBeenden_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</details>
+</details>
+<details class="question" open="open">
+<summary>Vier Checkboxen – „Alle auswählen“</summary>
+<p>Erstelle vier Checkboxen.
+Die <strong>erste Checkbox</strong> erhält den Text „Alle auswählen“.</p>
+<p>Programmiere die erste Checkbox so, dass wenn sie <strong>aktiviert</strong> wird,
+auch alle <strong>anderen</strong> Checkboxen aktiviert werden
+(und beim <strong>Deaktivieren</strong> alle anderen wieder deaktiviert werden).</p>
+<details class="success">
+<summary>Lösung</summary>
+<p><strong>WinForms (VS 2022)</strong></p>
+<p><em>Benennung im Designer</em><br />
+- CheckBox 1: <code>ChkAlleAuswaehlen</code> (Text: <strong>Alle auswählen</strong>)<br />
+- CheckBox 2: <code>ChkOption1</code> (Text z. B. <strong>Option 1</strong>)<br />
+- CheckBox 3: <code>ChkOption2</code> (Text z. B. <strong>Option 2</strong>)<br />
+- CheckBox 4: <code>ChkOption3</code> (Text z. B. <strong>Option 3</strong>)</p>
+<p><strong>Form1.cs</strong>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">DeineApp</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Form1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Form</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Form1</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">InitializeComponent</span><span class="p">();</span>
+
+<span class="w">            </span><span class="c1">// Anfangszustand (optional)</span>
+<span class="w">            </span><span class="n">ChkAlleAuswaehlen</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ChkOption1</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ChkOption2</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ChkOption3</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// &quot;Alle auswählen&quot; steuert die übrigen Checkboxen</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkAlleAuswaehlen_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkAlleAuswaehlen</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ChkOption1</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ChkOption2</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ChkOption3</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</details>
+</details>
+<h2 id="262-steuerlement-radiobutton">2.6.2 Steuerlement Radiobutton</h2>
+<details class="question" open="open">
+<summary>3 Radio Buttons - 3 Funktionen</summary>
+<p>Erstelle drei Radiobuttons und ein Label.
+Sorge dafür, dass sich die Farbe des Textes ändert, wenn man einen der Radiobuttons klickt.</p>
+<p>Baue die Lösung dabei so, dass jeder Button eine eigene Funktion hat.</p>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">// Angenommene Namen:</span>
+<span class="c1">//   RadioButtons: RbRot, RbGruen, RbBlau</span>
+<span class="c1">//   Label:        LblText</span>
+<span class="c1">// Jeder RadioButton hat seine eigene Ereignisfunktion (CheckedChanged).</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbRot_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbRot</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbGruen_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbGruen</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbBlau_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbBlau</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>3 Radio Buttons deaktivieren</summary>
+<p>Erstelle zwei Radiobuttons.</p>
+<p>Erstelle einen Button, der dafür sorgt, dass keiner der zwei Radiobuttons ausgewählt ist.</p>
+<p>Erstelle einen weiteren Button. Konfiguriere ihn so, dass er nur dann anklickbar ist,
+einer der Radiobuttons ausgewählt ist.</p>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">// Angenommene Namen:</span>
+<span class="c1">//   RadioButtons: RbA, RbB</span>
+<span class="c1">//   Button zum Leeren: BtnLeeren</span>
+<span class="c1">//   Nur-aktiv-wenn-ausgewählt-Button: BtnAktion</span>
+<span class="c1">// Hinweis: Setze im Designer anfangs BtnAktion.Enabled = false.</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbA_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Aktivierbar nur, wenn mind. einer ausgewählt ist.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbA</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">RbB</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BtnAktion</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BtnAktion</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbB_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Gleiche Logik wie oben (kein Extra-Helfer, wie gefordert bis hierhin).</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbA</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">RbB</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BtnAktion</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BtnAktion</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BtnLeeren_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Beide Radiobuttons abwählen -&gt; nichts ausgewählt.</span>
+<span class="w">    </span><span class="n">RbA</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">RbB</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Konsistent: Aktion-Button ist nun nicht anklickbar.</span>
+<span class="w">    </span><span class="n">BtnAktion</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>Textfeld aktivieren</summary>
+<p>Erstelle drei Radiobuttons mit den Texten "Herr", "Frau", "Frei wählbar".</p>
+<p>Erstellen Sie eine Textbox neben den dritten Radiobutton. Konfiguriere diesen so, 
+dass man nur in diesen schreiben kann, wenn "Frei wählbar" ausgewählt ist.</p>
+<p>Erstelle eine weitere Textbox für deinen Namen.</p>
+<p>Erstelle einen Button mit dem Text "Grüß mich", der Nutzer mit seinem Namen und der
+gewünschten Anrede anspricht.</p>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">// Angenommene Namen:</span>
+<span class="c1">//   RbHerr, RbFrau, RbFrei  (alle -&gt; CheckedChanged = RbAnrede_CheckedChanged)</span>
+<span class="c1">//   TbFrei (Enabled = false), TbName, BtnGruesMich (-&gt; Click), LblGruss</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbAnrede_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">TbFrei</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RbFrei</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BtnGruesMich_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">anrede</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Herr&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbFrau</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">anrede</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Frau&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RbFrei</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">anrede</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TbFrei</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">LblGruss</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Hallo {anrede} {TbName.Text}!&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<h2 id="263-gemeinsame-methode-fur-mehrere-ereignisse">2.6.3 Gemeinsame Methode für mehrere Ereignisse</h2>
+<details class="question" open="open">
+<summary>3 Radio Buttons - 1 Funktion</summary>
+<p>Erstelle drei Radiobuttons und ein Label.
+Sorge dafür, dass sich die Farbe des Textes ändert, wenn man einen der Radiobuttons klickt.</p>
+<p>Baue die Lösung dabei so, dass alle Buttons die gleiche Funktion benutzen .</p>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">// Angenommene Namen:</span>
+<span class="c1">//   RadioButtons: RbRot, RbGruen, RbBlau  (alle -&gt; CheckedChanged = RbFarbe_CheckedChanged)</span>
+<span class="c1">//   Label:        LblText</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbFarbe_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Ein und dieselbe Funktion für alle drei RadioButtons.</span>
+<span class="w">    </span><span class="n">RadioButton</span><span class="w"> </span><span class="n">rb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">RadioButton</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rb</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rb</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RbRot</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">rb</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RbGruen</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">rb</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RbBlau</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LblText</span><span class="p">.</span><span class="n">ForeColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<h2 id="264-steuerelement-groupbox">2.6.4 Steuerelement GroupBox</h2>
+<details class="question" open="open">
+<summary>2 GroupBoxen – Kontakt &amp; Versand</summary>
+<p>Erstelle ein kleines Formular mit zwei GroupBoxen.</p>
+<p><strong>1) GroupBox „Kontakt“ (<code>GbxKontakt</code>)</strong></p>
+<ul>
+<li>Zwei RadioButtons: <code>RbMail</code> (Text: „E-Mail“) und <code>RbTelefon</code> (Text: „Telefon“).</li>
+</ul>
+<p><strong>2) GroupBox „Versand“ (<code>GbxVersand</code>)</strong></p>
+<ul>
+<li>Zwei RadioButtons: <code>RbStandard</code> (Text: „Standard“) und <code>RbExpress</code> (Text: „Express“).</li>
+</ul>
+<p><strong>3) Auswertung</strong></p>
+<ul>
+<li>
+<p>Ein Button <code>BtnAuswerten</code> (Text: „Auswahl anzeigen“).</p>
+</li>
+<li>
+<p>Ein Label <code>LblAusgabe</code> (leer).</p>
+</li>
+<li>
+<p>Beim Klick auf den Button soll im Label stehen, welche Kontaktart und welche Versandart gewählt wurden, z. B.: <code>Kontakt: E-Mail | Versand: Express</code>.</p>
+</li>
+<li>
+<p>Starte ohne Vorauswahl.</p>
+</li>
+<li>
+<p>Der Button <code>BtnAuswerten</code> ist nur anklickbar, wenn in <strong>beiden</strong> GroupBoxen jeweils eine Option gewählt wurde.</p>
+</li>
+</ul>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">// Angenommene Namen:</span>
+<span class="c1">//   GroupBoxen: GbxKontakt, GbxVersand</span>
+<span class="c1">//   RadioButtons: RbMail, RbTelefon, RbStandard, RbExpress</span>
+<span class="c1">//   Button: BtnAuswerten</span>
+<span class="c1">//   Label: LblAusgabe</span>
+<span class="c1">// Hinweise: Setze im Designer anfangs BtnAuswerten.Enabled = false.</span>
+<span class="c1">//           Starte ohne Vorauswahl (alle RadioButtons: Checked = false).</span>
+
+<span class="c1">// Allen vier RadioButtons im Designer dasselbe Ereignis zuweisen:</span>
+<span class="c1">// CheckedChanged = Rb_CheckedChanged</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rb_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">kontaktGewählt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RbMail</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">RbTelefon</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">versandGewählt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RbStandard</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">RbExpress</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+<span class="w">    </span><span class="n">BtnAuswerten</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kontaktGewählt</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">versandGewählt</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BtnAuswerten_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Button ist nur aktiv, wenn in beiden Gruppen etwas gewählt ist.</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">kontakt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RbMail</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;E-Mail&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Telefon&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">versand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RbExpress</span><span class="p">.</span><span class="n">Checked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Express&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Standard&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LblAusgabe</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Kontakt: {kontakt} | Versand: {versand}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question" open="open">
+<summary>Checkbox zeigt GroupBox mit 2 Optionen</summary>
+<p>Erstelle eine CheckBox <code>ChkZusatz</code> (Text: „Zusatzoptionen anzeigen“).</p>
+<p>Erstelle eine GroupBox <code>GbxZusatz</code> (Text: „Zusatzoptionen“) mit <strong>zwei RadioButtons</strong>:</p>
+<ul>
+<li>
+<p><code>RbA</code> (Text: „Option A“) – <strong>soll vorausgewählt sein</strong>.</p>
+</li>
+<li>
+<p><code>RbB</code> (Text: „Option B“).</p>
+</li>
+</ul>
+<p>Erstelle ein <strong>immer sichtbares</strong> Label <code>LblAuswahl</code>, das die aktuelle Auswahl beschreibt.</p>
+<p>Starte so:</p>
+<ul>
+<li>
+<p><code>GbxZusatz.Visible = false</code></p>
+</li>
+<li>
+<p><code>RbA.Checked = true</code> (Vorauswahl)</p>
+</li>
+<li>
+<p><code>LblAuswahl.Text = "Auswahl: (deaktiviert)"</code></p>
+</li>
+</ul>
+<p>Verhalten:</p>
+<ul>
+<li>
+<p>Wenn <code>ChkZusatz</code> angehakt wird → <code>GbxZusatz</code> sichtbar und <code>LblAuswahl</code> zeigt die aktuell ausgewählte Option.</p>
+</li>
+<li>
+<p>Wenn <code>ChkZusatz</code> abgewählt wird → <code>GbxZusatz</code> unsichtbar und <code>LblAuswahl</code> zeigt „(deaktiviert)“.</p>
+</li>
+<li>
+<p>Beim Umschalten zwischen <code>RbA</code> und <code>RbB</code> wird <code>LblAuswahl</code> entsprechend aktualisiert.</p>
+</li>
+</ul>
+<details class="success">
+<summary>Lösung</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">// Angenommene Namen und Verdrahtung:</span>
+<span class="c1">//   CheckBox:   ChkZusatz          (CheckedChanged = ChkZusatz_CheckedChanged)</span>
+<span class="c1">//   GroupBox:   GbxZusatz          (Visible = false)</span>
+<span class="c1">//   RadioBtns:  RbA, RbB           (beide CheckedChanged = RbOption_CheckedChanged)</span>
+<span class="c1">//   Label:      LblAuswahl         (Text = &quot;Auswahl: (deaktiviert)&quot;)</span>
+<span class="c1">//   Designer:   RbA.Checked = true (Vorauswahl)</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChkZusatz_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GbxZusatz</span><span class="p">.</span><span class="n">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChkZusatz</span><span class="p">.</span><span class="n">Checked</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ChkZusatz</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Zeige die aktuell gewählte Option (RbA ist standardmäßig vorausgewählt)</span>
+<span class="w">        </span><span class="n">LblAuswahl</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Auswahl: {(RbA.Checked ? RbA.Text : RbB.Text)}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LblAuswahl</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Auswahl: (deaktiviert)&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RbOption_CheckedChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">RadioButton</span><span class="w"> </span><span class="n">rb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">RadioButton</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rb</span><span class="p">.</span><span class="n">Checked</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Nur aktualisieren, wenn die Zusatz-Optionen sichtbar sind</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GbxZusatz</span><span class="p">.</span><span class="n">Visible</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LblAuswahl</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Auswahl: {rb.Text}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2.4 Verzweigungen mit if und else">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2.4 Verzweigungen mit if und else
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2_7/" class="md-footer__link md-footer__link--next" aria-label="Next: 2.7 Schleifen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2.7 Schleifen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
