@@ -1,0 +1,68 @@
+title: Todo-App
+question: |
+  Erstelle mit deinen Bisherigen Mitteln eine Anwendung, um eine Todo-Liste zu zu erstellen.
+  In einer ListBox sollen die Elemente aufgelistet sein.
+  Es soll möglich sein neue Elemente hinzuzufügen und bestehende zu löschen.
+solution: |
+  Die folgende Lösung wurde mit ChatGPT erstellt und enthält ein paar Funktionen, die über unsere
+  Mittel hinausgehen. Diese sind aber verständlich oder gut kommentiert.
+  Da wir hier also weitere Funktionen lernen können, lasse ich es als Lösung.
+
+  ```csharp
+  // Fügt ein neues Todo aus der TextBox hinzu
+  private void BtnAdd_Click(object sender, EventArgs e)
+  {
+      var text = TxtTodo.Text.Trim();
+      if (string.IsNullOrEmpty(text))
+      {
+          MessageBox.Show("Bitte einen Text eingeben.");
+          TxtTodo.Focus();
+          return;
+      }
+
+      LstTodos.Items.Add(text);
+      TxtTodo.Clear();
+      TxtTodo.Focus();
+  }
+
+  // Löscht ausgewählte Todo(s) aus der ListBox
+  private void BtnDelete_Click(object sender, EventArgs e)
+  {
+      if (LstTodos.SelectedIndices.Count == 0)
+      {
+          MessageBox.Show("Bitte mindestens ein Element auswählen.");
+          return; // Die Methode wird vorzeitig beendet.
+      }
+
+      // Von hinten löschen, damit Indizes gültig bleiben
+      for (int i = LstTodos.SelectedIndices.Count - 1; i >= 0; i--)
+      {
+          LstTodos.Items.RemoveAt(LstTodos.SelectedIndices[i]);
+      }
+  }
+
+  // Optional: Initialisieren und Mehrfachauswahl erlauben
+  private void Form1_Load(object sender, EventArgs e)
+  {
+      LstTodos.Items.Clear();
+      LstTodos.SelectionMode = SelectionMode.MultiExtended; // Mehrfachauswahl zum Löschen
+  }
+
+  // Optional: Enter fügt hinzu, Entf löscht
+  private void TxtTodo_KeyDown(object sender, KeyEventArgs e)
+  {
+      if (e.KeyCode == Keys.Enter)
+      {
+          e.SuppressKeyPress = true;
+          BtnAdd.PerformClick();
+      }
+  }
+
+  private void LstTodos_KeyDown(object sender, KeyEventArgs e)
+  {
+      if (e.KeyCode == Keys.Delete)
+      {
+          BtnDelete.PerformClick();
+      }
+  }
+  ```

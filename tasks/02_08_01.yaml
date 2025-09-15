@@ -1,9 +1,17 @@
 title: ListBox füllen (1..n)
 question: |
-  Fülle eine `ListBox` (`LstZahlen`) mit den Zahlen 1..n (NumericUpDown `NumN`) per `for`.
+  Fülle eine `ListBox` (`LstZahlen`) mit den Zahlen 1 bis 10 per `for`.
+  Wähle dann die 7 aus.
+tip: |
+  Füge den Code in `Form1_Load(...)` hinzu.
 solution: |
   ```csharp
-  LstZahlen.Items.Clear();
-  int n = (int)NumN.Value;
-  for (int i = 1; i <= n; i++) LstZahlen.Items.Add(i);
+  public Form1()
+  {
+      InitializeComponent();
+    
+      LstZahlen.Items.Clear();
+      for (int i = 1; i <= 10; i++) LstZahlen.Items.Add(i);
+      LstZahlen.SelectedItem = 7;
+  }
   ```

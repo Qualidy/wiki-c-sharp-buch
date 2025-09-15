@@ -1,0 +1,63 @@
+title: Umständlicher Safe
+question: |
+  Erstelle vier ComboBoxen, jeweils mit den Zahlen von 0 bis 9.
+
+  Speichere in einer Konstanten `passwort` einen String aus 4 Ziffern.
+
+  Erstelle einen Button "Prüfe Code". Wenn dieser geklickt wird, werden die ausgewählten Ziffern der 4 ComboBoxen zu einem String
+  zusammengesetzt und mit dem `passwort` verglichen. Wenn die Strings nicht übereinstimmen, erscheint in rot der Text "Falsches Passwort".
+  Wenn sie übereinstimmen, erscheint ein Text mit einem Geheimnis von dir.
+
+  Bonus:
+  Beende das Programm, wenn drei Mal das falsche Passwort ausgewählt wurde.
+
+solution: |
+  ```csharp
+  // Konstante für das Passwort und Zähler für Fehlversuche
+  private const string passwort = "1234"; // 4-stellig
+  private int fehlversuche = 0;
+
+  // Beim Laden: ComboBoxen mit 0..9 füllen und initial auswählen
+  private void Form1_Load(object sender, EventArgs e)
+  {
+      // Ohne Arrays: jede ComboBox einzeln füllen
+      Cmb1.Items.Clear();
+      for (int i = 0; i <= 9; i++)
+      {
+          Cmb1.Items.Add(i);
+          Cmb2.Items.Add(i);
+          Cmb3.Items.Add(i);
+          Cmb4.Items.Add(i);
+      }
+
+      LblStatus.Text = string.Empty;
+  }
+
+  // Button-Handler: Code prüfen
+  private void BtnPruefe_Click(object sender, EventArgs e)
+  {
+      string code = ($"{Cmb1.SelectedItem}{Cmb2.SelectedItem}{Cmb3.SelectedItem}{Cmb4.SelectedItem}");
+
+      if (code == passwort)
+      {
+          LblStatus.ForeColor = Color.Green;
+          LblStatus.Text = "Geheimnis: Ich habe ein süßes Gummienten-Maskottchen auf dem Schreibtisch.";
+
+          // Optional: Nach Erfolg Eingaben deaktivieren
+          Cmb1.Enabled = Cmb2.Enabled = Cmb3.Enabled = Cmb4.Enabled = false;
+          BtnPruefe.Enabled = false;
+          return;
+      }
+
+      // Falsches Passwort
+      fehlversuche++;
+      LblStatus.ForeColor = Color.Red;
+      LblStatus.Text = "Falsches Passwort";
+
+      if (fehlversuche >= 3)
+      {
+          Application.Exit(); // Bonus: nach 3 Fehlversuchen beenden
+      }
+  }
+  ```
+

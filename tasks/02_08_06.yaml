@@ -1,0 +1,39 @@
+title: Summe bilden
+question: |
+  Erstelle eine ListBox, eine TextBox und einen Button.
+  Immer wenn auf den Button geklickt wird, wird die Zahl, die in der TextBox steht, in die ListBox eingetragen.
+  Füge ein Label hinzu, dass die Summe der Elemente in der Listbox zeigt.
+tip: |
+  Die Elemente in der Textbox sind `string`. Wenn du sie also aufsummieren willst, musst du sie vorher einen passenden Datentypen verwandeln.
+solution: |
+  ```csharp
+  // Button-Click-Handler: Zahl aus TextBox eintragen und Summe aktualisieren
+  private void BtnAdd_Click(object sender, EventArgs e)
+  {
+      // Theoretisch müsste man hier prüfen, dass es sich bei der Eingabe
+      // tatsächlich um eine Zahl handelt. Dies überspringen wir hier aber.
+      LstZahlen.Items.Add(value);
+      UpdateSumme();
+      TxtZahl.Clear();
+
+  }
+
+  // Hilfsmethode: Summe der ListBox-Elemente berechnen und im Label anzeigen
+  private void UpdateSumme()
+  {
+      int sum = 0;
+      foreach (var item in LstZahlen.Items)
+          sum += Convert.ToInt32(item);
+
+      LblSumme.Text = $"Summe: {sum}";
+  }
+
+  // Optional: beim Laden initialisieren
+  private void Form1_Load(object sender, EventArgs e)
+  {
+      InitializeComponent();
+      
+      LstZahlen.Items.Clear();
+      UpdateSumme(); // zeigt "Summe: 0"
+  }
+  ```
